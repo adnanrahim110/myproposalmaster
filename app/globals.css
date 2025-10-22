@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #ff6137;
+  --color-primary-50: #fff3ed;
+  --color-primary-100: #ffe3d4;
+  --color-primary-200: #ffc2a8;
+  --color-primary-300: #ff9871;
+  --color-primary-400: #ff6137;
+  --color-primary-500: #fe3911;
+  --color-primary-600: #ef1f07;
+  --color-primary-700: #c61108;
+  --color-primary-800: #9d110f;
+  --color-primary-900: #7e1210;
+  --color-primary-950: #440608;
+
+  --font-source-sans: var(--font-source-sans);
+  --font-dm-sans: var(--font-dm-sans);
+  --font-snell-bt: var(--font-snell-bt);
+  --font-snell-roundhand: var(--font-snell-roundhand);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    @apply box-border;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  button {
+    @apply cursor-pointer;
+  }
+
+  body {
+    @apply text-neutral-800 font-dm-sans xl:text-lg;
+  }
+
+  :is(button, a, input, textarea, select) {
+    @apply outline-none focus:outline-none;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    @apply font-bold font-source-sans leading-[1.2];
+  }
+
+  *::selection {
+    @apply bg-primary text-black;
+  }
+
+  textarea {
+    @apply resize-none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .container {
+    @apply mx-auto px-5 w-full max-w-full sm:px-3 sm:max-w-lg md:max-w-2xl lg:max-w-[940px] xl:max-w-6xl 2xl:max-w-7xl;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer components {
+  .row {
+    @apply flex flex-wrap -mx-3 relative w-full *:px-3 *:w-full *:relative *:basis-auto *:shrink-0 *:grow-0;
+  }
 }
