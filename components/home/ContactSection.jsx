@@ -69,7 +69,7 @@ const ContactSection = () => {
           title="Ready to Get Started?"
           description="Tell us about your project. A strategist will review and get back within 1 business day."
           className="mb-16 text-left lg:text-center"
-          maxWidth="max-w-3xl"
+          maxWidth="max-w-4xl"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">

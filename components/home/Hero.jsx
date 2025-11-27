@@ -45,18 +45,18 @@ const Hero = () => {
             <div>
               <Title
                 as="h1"
-                highlightedText="Winning Proposals"
+                highlightedText="Fueling Your Vision."
                 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent tracking-tight leading-[0.85]"
                 highlightClassName="text-primary-500 -mt-5 font-snell-bt leading-snug"
                 isInView={isInView}
                 delay={0.3}
               >
-                Transform Your Vision Into Winning Proposals
+                Winning Grants.&nbsp; Fueling Your Vision.
               </Title>
             </div>
 
             <motion.p
-              className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-xl md:text-2xl text-gray-200 max-w-7xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{
@@ -65,34 +65,17 @@ const Hero = () => {
                 delay: 1.2,
               }}
             >
-              Expert grant writing, strategic consulting, and program
-              development services that turn ideas into funded realities.
-              Partner with industry leaders who deliver results.
+              Behind every successful organization is the funding that makes its
+              mission possible. Securing grants, however, takes more than
+              filling out applications. It requires a compelling story, precise
+              alignment with funder requirements, and the confidence that every
+              detail is handled with care. <br />
+              That’s where we come in. We provide professional grant writing
+              services tailored to nonprofits, researchers, educational
+              institutions, healthcare organizations, and businesses. Our goal
+              is simple: to help you win the funding you need to grow, innovate,
+              and make an impact.
             </motion.p>
-
-            <motion.div
-              className="flex flex-wrap justify-center gap-4 text-sm text-gray-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{
-                duration: 0.5,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 1.5,
-              }}
-            >
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary-400" />
-                <span>$50M+ in Grants Secured</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary-400" />
-                <span>95% Success Rate</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary-400" />
-                <span>Industry Experts</span>
-              </div>
-            </motion.div>
           </div>
           <motion.div
             className="my-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -111,7 +94,7 @@ const Hero = () => {
               size="lg"
               showArrow={true}
             >
-              Start Your Project
+              Book a Free Consultation
             </Button>
 
             <Button
@@ -121,7 +104,7 @@ const Hero = () => {
               size="lg"
               showArrow={true}
             >
-              View Our Work
+              Explore Our Services
             </Button>
           </motion.div>
           <motion.div

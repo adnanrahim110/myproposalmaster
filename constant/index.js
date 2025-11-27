@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import SERVICES from './services';
 
 export const NAVIGATION_LINKS = [
   {
@@ -12,33 +13,11 @@ export const NAVIGATION_LINKS = [
   {
     name: 'Services',
     href: false,
-    subMenu: [
-      {
-        name: 'Grant Writing',
-        href: '/grant-writing',
-      },
-      {
-        name: 'Consulting',
-        href: '/consulting',
-      },
-      {
-        name: 'Interim Personnel',
-        href: '/interim-personnel',
-      },
-      {
-        name: 'Program Development',
-        href: '/program-development',
-      },
-      {
-        name: 'Event Fundraising',
-        href: '/event-fundraising',
-      },
-    ],
+    subMenu: SERVICES.map((s) => ({
+      name: s.title || s.name || s.id,
+      href: `/${s.id}`,
+    })),
   },
-  // {
-  //   name: 'The Team',
-  //   href: '#team',
-  // },
   {
     name: 'Testimonials',
     href: '/testimonials',
@@ -70,78 +49,52 @@ export const CONTACT_DETAILS = [
   }
 ]
 
-export const SERVICES = [
-  {
-    id: 'grant-writing',
-    title: 'Grant Writing',
-    icon: '✍️',
-    description: 'Expert grant proposal development to secure funding for your organization. Our experienced team has helped secure millions in grant funding.',
-    features: [
-      'Comprehensive grant research and identification',
-      'Professional proposal writing and editing',
-      'Budget development and justification',
-      'Application submission and follow-up',
-      'Grant compliance and reporting support',
-      'Strategic funding planning',
-    ],
-  },
-  {
-    id: 'consulting',
-    title: 'Consulting',
-    icon: '💼',
-    description: 'Strategic consulting services to optimize your operations and achieve your organizational goals with expert guidance.',
-    features: [
-      'Organizational assessment and planning',
-      'Strategic planning and goal setting',
-      'Process improvement and optimization',
-      'Leadership development and coaching',
-      'Change management support',
-      'Performance measurement and evaluation',
-    ],
-  },
-  {
-    id: 'interim-personnel',
-    title: 'Interim Personnel',
-    icon: '👥',
-    description: 'Qualified interim staff to fill critical roles during transitions, ensuring continuity and excellence in operations.',
-    features: [
-      'Executive leadership placement',
-      'Project management professionals',
-      'Rapid deployment and onboarding',
-      'Flexible engagement terms',
-      'Seamless transition support',
-      'Knowledge transfer protocols',
-    ],
-  },
-  {
-    id: 'program-development',
-    title: 'Program Development',
-    icon: '📊',
-    description: 'Comprehensive program design and implementation support to create impactful initiatives that deliver measurable results.',
-    features: [
-      'Needs assessment and analysis',
-      'Program design and planning',
-      'Implementation strategy development',
-      'Monitoring and evaluation frameworks',
-      'Stakeholder engagement planning',
-      'Sustainability and scaling strategies',
-    ],
-  },
-  {
-    id: 'event-fundraising',
-    title: 'Event Fundraising',
-    icon: '🎉',
-    description: 'Creative event planning and fundraising strategies to engage donors and maximize your fundraising potential.',
-    features: [
-      'Event concept development',
-      'Donor engagement strategies',
-      'Sponsorship cultivation',
-      'Logistics and vendor management',
-      'Marketing and promotion',
-      'Post-event analysis and follow-up',
-    ],
-  },
-];
+export const TESTIMONIALS = {
+  comments: [
+    {
+      text:
+        "Thanks to their guidance, we secured $500,000 in federal funding for our community development project. They understood our mission and translated it into a winning proposal.",
+      author: "Sarah Kris",
+      position: "Nonprofit Director",
+      rating: 5,
+    },
+    {
+      text:
+        "As a researcher, I was overwhelmed by grant requirements. Their team made the process easy and delivered a clear, compelling proposal that earned us our first major grant.",
+      author: "Dr. Michael Robert",
+      position: "University Researcher",
+      rating: 5,
+    },
+    {
+      text:
+        "Professional, knowledgeable, and approachable. They don’t just write, they coach and guide you through the process. Highly recommended.",
+      author: "James Peterson.",
+      position: "Healthcare Organization",
+      rating: 5,
+    },
+    {
+      text:
+        "Working with them was a turning point for our nonprofit. They not only wrote winning proposals but also helped us build the confidence to keep growing.",
+      author: "Andrea Mark",
+      position: "",
+      rating: 5,
+    },
+    {
+      text:
+        "Their team understood the complexities of academic funding better than anyone. With their support, we won our largest research grant to date.",
+      author: "Dr. Samuel Hudson",
+      position: "",
+      rating: 5,
+    },
+    {
+      text:
+        "Professional, reliable, and deeply knowledgeable. They gave us the tools and proposals we needed to take our startup to the next level.",
+      author: "Nathan Richard",
+      position: "",
+      rating: 5,
+    },
+  ]
+};
 
 export const LEGAL_PAGES = [
   {
@@ -251,4 +204,3 @@ export const LEGAL_PAGES = [
     ]
   }
 ];
-

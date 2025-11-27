@@ -12,6 +12,7 @@ const Title = ({
   highlightClassName = "font-snell-roundhand font-black text-primary-500",
   isInView: externalIsInView,
   delay = 0,
+  dangerouslySetInnerHTML,
 }) => {
   const ref = useRef(null);
   const internalIsInView = useInView(ref, {
@@ -104,31 +105,120 @@ const Title = ({
       .flat();
   };
 
-  const renderContent = () => {
-    if (highlightedText && typeof children === "string") {
-      const parts = children.split(highlightedText);
-      let characterIndex = 0;
-
-      return parts.reduce((acc, part, partIndex) => {
-        const animatedPart = animateText(part, characterIndex);
-        characterIndex += part.length;
-
-        if (partIndex === 0) {
-          return animatedPart;
-        }
-
-        const animatedHighlight = animateText(
-          highlightedText,
-          characterIndex,
-          true
-        );
-        characterIndex += highlightedText.length;
-
-        return [...acc, ...animatedHighlight, ...animatedPart];
-      }, []);
+  const animateStringWithHighlight = (text, startIndex = 0) => {
+    if (!text) {
+      return { nodes: [], newIndex: startIndex };
     }
 
-    return animateText(children, 0);
+    if (highlightedText && typeof text === "string" && text.includes(highlightedText)) {
+      const parts = text.split(highlightedText);
+      let characterIndex = startIndex;
+
+      const animatedParts = parts.reduce((acc, part, partIndex) => {
+        if (part) {
+          const animatedPart = animateText(part, characterIndex);
+          characterIndex += part.length;
+          acc.push(...animatedPart);
+        }
+
+        if (partIndex < parts.length - 1) {
+          const animatedHighlight = animateText(highlightedText, characterIndex, true);
+          characterIndex += highlightedText.length;
+          acc.push(...animatedHighlight);
+        }
+
+        return acc;
+      }, []);
+
+      return { nodes: animatedParts, newIndex: characterIndex };
+    }
+
+    const animated = animateText(text, startIndex);
+    const newIndex = startIndex + (typeof text === "string" ? text.length : 0);
+
+    return { nodes: Array.isArray(animated) ? animated : [animated], newIndex };
+  };
+
+  const renderHtmlContent = (htmlString) => {
+    const htmlToParse = htmlString ?? "";
+    let characterIndex = 0;
+    const allowedTags = new Set([
+      "BR",
+      "STRONG",
+      "EM",
+      "B",
+      "I",
+      "U",
+      "SPAN",
+      "SUP",
+      "SUB",
+      "MARK",
+      "SMALL",
+    ]);
+
+    if (typeof window === "undefined" || typeof DOMParser === "undefined") {
+      const plainText = htmlToParse.replace(/<br\s*\/?>/gi, "\n");
+      return animateStringWithHighlight(plainText, 0).nodes;
+    }
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlToParse, "text/html");
+
+    const convertNode = (node, keyPrefix) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const textValue = node.textContent || "";
+        const { nodes, newIndex } = animateStringWithHighlight(textValue, characterIndex);
+        characterIndex = newIndex;
+        return nodes;
+      }
+
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        const tagName = node.tagName.toUpperCase();
+
+        if (tagName === "BR") {
+          return <br key={`br-${keyPrefix}`} />;
+        }
+
+        const children = Array.from(node.childNodes).flatMap((child, idx) =>
+          convertNode(child, `${keyPrefix}-${idx}`)
+        );
+
+        if (!allowedTags.has(tagName)) {
+          return children;
+        }
+
+        const Tag = tagName.toLowerCase();
+        const classNameAttr = node.getAttribute("class") || undefined;
+
+        return React.createElement(
+          Tag,
+          {
+            key: `${Tag}-${keyPrefix}`,
+            ...(classNameAttr ? { className: classNameAttr } : {}),
+          },
+          children
+        );
+      }
+
+      return null;
+    };
+
+    return Array.from(doc.body.childNodes).flatMap((node, idx) =>
+      convertNode(node, `node-${idx}`)
+    );
+  };
+
+  const renderContent = () => {
+    const htmlContent =
+      dangerouslySetInnerHTML?.__html ||
+      (typeof children === "string" && /<[^>]+>/.test(children) ? children : null);
+
+    if (htmlContent) {
+      return renderHtmlContent(htmlContent);
+    }
+
+    const { nodes } = animateStringWithHighlight(children, 0);
+    return nodes;
   };
 
   return (

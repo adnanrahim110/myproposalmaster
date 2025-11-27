@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, CheckCircle, Target } from "lucide-react";
-import Image from "next/image";
 import { useRef } from "react";
 import Button from "../ui/Button";
 import Subtitle from "../ui/Subtitle";
@@ -30,7 +29,7 @@ const AboutHero = () => {
         ref={heroRef}
         className="container mx-auto px-4 lg:px-8 relative z-10"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[58%_auto] gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
@@ -45,18 +44,18 @@ const AboutHero = () => {
                 isInView={isInView}
                 delay={0}
               >
-                The Business Plan Authority
+                My Proposal Masters
               </Subtitle>
 
               <Title
                 as="h1"
-                highlightedText="My Proposal Masters"
+                highlightedText="Winning Grants"
                 className="text-5xl lg:text-6xl font-bold text-white leading-tight"
                 highlightClassName="text-primary-400"
                 isInView={isInView}
                 delay={0.3}
               >
-                Building Fundable Plans with My Proposal Masters
+                Empowering Organizations Through Winning Grants
               </Title>
 
               <motion.p
@@ -67,10 +66,13 @@ const AboutHero = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-xl text-gray-300 leading-relaxed font-light"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi maiores rem qui eveniet labore consequatur at veniam
-                odit facere, commodi ratione eligendi ea earum atque. Illo
-                numquam eveniet maxime modi.
+                Behind every funded project is a story worth telling, and that’s
+                what we do best. We are a team of experienced grant writers,
+                researchers, and strategists dedicated to helping nonprofits,
+                businesses, and academic institutions secure the funding they
+                need to grow and create lasting impact. So, for your ease, what
+                we offer is simple: funding should never be the barrier to great
+                ideas.
               </motion.p>
             </div>
 

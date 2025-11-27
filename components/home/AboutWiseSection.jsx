@@ -2,23 +2,14 @@
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import {
-  ArrowRight,
-  Award,
   BookOpen,
   Brain,
-  Building2,
   CheckCircle,
-  DollarSign,
-  Globe,
   Handshake,
   Heart,
-  Lightbulb,
   Phone,
   Rocket,
   Target,
-  TrendingUp,
-  Users,
-  Zap,
 } from "lucide-react";
 import { useRef, useState } from "react";
 import Button from "../ui/Button";
@@ -45,69 +36,80 @@ const AboutWiseSection = () => {
   const journey = [
     {
       step: "01",
-      title: "Vision",
-      subtitle: "Where It All Began",
+      title: "Initial Consultation",
+      subtitle: "We listen",
       description:
-        "Founded with a simple yet powerful mission: to bridge the gap between entrepreneurial dreams and business reality through strategic excellence.",
-      icon: Lightbulb,
-      metric: "2010",
-      metricLabel: "Founded",
+        "We listen. Our first step is to understand your mission, funding needs, and project goals.",
+      icon: Phone,
+      metric: "",
+      metricLabel: "",
     },
     {
       step: "02",
-      title: "Expertise",
-      subtitle: "Building Our Foundation",
+      title: "Opportunity Research",
+      subtitle: "Targeted Opportunities",
       description:
-        "Assembled a world-class team of MBA-educated consultants with deep expertise across 400+ industries, establishing our reputation for excellence.",
-      icon: Brain,
-      metric: "400+",
-      metricLabel: "Industries",
+        "We identify grants that are the best fit for your organization, no guesswork, just targeted opportunities.",
+      icon: BookOpen,
+      metric: "",
+      metricLabel: "",
     },
     {
       step: "03",
-      title: "Growth",
-      subtitle: "Scaling Success",
+      title: "Proposal Development",
+      subtitle: "Tailored Proposals",
       description:
-        "Helped secure over $50M in funding for ambitious entrepreneurs and growing businesses worldwide through proven methodologies.",
-      icon: TrendingUp,
-      metric: "$50M+",
-      metricLabel: "Secured",
+        "Our experts craft a professional proposal that is tailored to funder guidelines and highlights your unique impact.",
+      icon: Rocket,
+      metric: "",
+      metricLabel: "",
     },
     {
       step: "04",
-      title: "Impact",
-      subtitle: "Today & Tomorrow",
+      title: "Review & Refinement",
+      subtitle: "Collaborative Editing",
       description:
-        "Serving 5,000+ clients globally with a 98% success rate, continuing to innovate and lead the industry into the future.",
-      icon: Globe,
-      metric: "5000+",
-      metricLabel: "Clients",
+        "We collaborate with you, ensuring the final draft reflects your voice and values while meeting funder expectations.",
+      icon: CheckCircle,
+      metric: "",
+      metricLabel: "",
+    },
+    {
+      step: "05",
+      title: "Submission & Beyond",
+      subtitle: "Ongoing Support",
+      description:
+        "We guide you through the submission process and remain available for future applications, renewals, or resubmissions.",
+      icon: Handshake,
+      metric: "",
+      metricLabel: "",
     },
   ];
 
   const values = [
     {
       icon: Target,
-      title: "Excellence",
+      title: "Funding Dreams",
       description:
-        "Uncompromising commitment to delivering exceptional results",
+        "Connecting bold ideas with the right government, foundation, and private grant opportunities so projects can move from concept to reality.",
     },
     {
-      icon: Users,
-      title: "Partnership",
+      icon: Heart,
+      title: "Encouraging Change",
       description:
-        "Building lasting relationships based on trust and mutual success",
+        "Shaping proposals that highlight real-world impact, showing funders exactly why each mission matters and deserves support.",
     },
     {
       icon: Brain,
-      title: "Innovation",
-      description: "Leveraging cutting-edge strategies and market insights",
+      title: "Strategic Storytelling",
+      description:
+        "Listening, researching, and crafting clear, compelling narratives backed by sector insight, so every application stands out in a competitive field.",
     },
     {
-      icon: Award,
-      title: "Integrity",
+      icon: Handshake,
+      title: "Guidance at Every Step",
       description:
-        "Conducting business with transparency and ethical standards",
+        "Providing end-to-end support, from opportunity mapping and strategy to writing, refinement, and submission, so clients are never alone in the grant journey.",
     },
   ];
 
@@ -159,13 +161,13 @@ const AboutWiseSection = () => {
 
           <Title
             as="h2"
-            highlightedText="My Proposal Masters"
+            highlightedText="proven Process"
             highlightClassName="text-primary-600"
             className="mb-8 text-gray-900"
             isInView={isInView}
             delay={0.4}
           >
-            The Evolution of My Proposal Masters
+            A Simple, Proven Process That Gets Results.
           </Title>
 
           <motion.p
@@ -174,9 +176,8 @@ const AboutWiseSection = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto font-light"
           >
-            From a visionary concept to a global leader in strategic business
-            consulting. Witness how we've transformed entrepreneurial dreams
-            into measurable success stories across industries and continents.
+            We know grant writing can feel overwhelming. Our process is built to
+            make it simple, transparent, and effective.
           </motion.p>
         </motion.div>
 
@@ -330,12 +331,12 @@ const AboutWiseSection = () => {
         >
           <div className="mb-16">
             <h3 className="text-4xl font-bold text-gray-900 mb-6">
-              Our Foundation
+              Our Mission
             </h3>
             <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-600 mx-auto rounded-full mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-              The core principles that define who we are and guide every
-              strategic decision we make for our clients.
+            <p className="text-xl text-gray-600 max-w-6xl mx-auto font-light leading-relaxed">
+              The core focus is simple: funding dreams and empowering change by
+              bridging the gap between vision and funding.
             </p>
           </div>
 
@@ -422,7 +423,7 @@ const AboutWiseSection = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-5xl font-bold mb-6 leading-tight"
               >
-                Transform Your Vision Into Reality
+                Your Vision Deserves Funding. We Can Help.
               </motion.h3>
 
               <motion.p
@@ -430,11 +431,13 @@ const AboutWiseSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-xl text-primary-100 mb-12 max-w-3xl mx-auto font-light leading-relaxed"
+                className="text-xl text-primary-100 mb-12 max-w-5xl mx-auto font-light leading-relaxed"
               >
-                Join the exclusive network of successful entrepreneurs who chose
-                strategic excellence. Let's architect your path to sustainable
-                business growth and market leadership.
+                Securing a grant can change everything for your project or
+                organization. Don’t let the complexity of the process stand in
+                your way. With our proven expertise, personalized strategies,
+                and commitment to your success, you’ll have a trusted partner by
+                your side.
               </motion.p>
 
               <motion.div
@@ -450,7 +453,7 @@ const AboutWiseSection = () => {
                   showArrow
                   className="bg-white text-primary-700 border-0 font-semibold px-8 py-4"
                 >
-                  START YOUR JOURNEY
+                  Request a Free Quote
                 </Button>
 
                 <Button
@@ -458,7 +461,7 @@ const AboutWiseSection = () => {
                   size="lg"
                   className="text-white border-2 border-white/30 backdrop-blur-md font-semibold px-8 py-4"
                 >
-                  Explore Success Stories
+                  Book a Strategy Call
                 </Button>
               </motion.div>
             </div>

@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Quote, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const defaultHighlights = [
   { label: "Plans Authored", value: "15,000+" },
@@ -34,7 +34,7 @@ const ServiceLeadershipSpotlight = ({ service }) => {
 
   return (
     <section className="relative overflow-hidden py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(254,97,55,0.18),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.18),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(254,97,55,0.18),transparent_55%),radial-gradient(circle_at_bottom_right,#fff,transparent_60%)]" />
 
       <div className="container relative">
         <motion.div
@@ -42,7 +42,7 @@ const ServiceLeadershipSpotlight = ({ service }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative overflow-hidden rounded-[36px] border border-white/15 bg-gradient-to-br from-[#121a2c] via-[#0e1424] to-[#091021] text-white shadow-[0_48px_120px_-60px_rgba(8,15,31,0.8)]"
+          className="relative overflow-hidden rounded-[36px] border border-white/15 bg-gradient-to-br from-[#121a2c] via-[#0e1424] to-[#091021] text-white shadow-xl"
         >
           <div className="absolute inset-0">
             <div className="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-primary-500/25 blur-3xl" />

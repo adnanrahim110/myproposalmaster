@@ -37,35 +37,57 @@ const ServicesShowcase = () => {
   const services = [
     {
       id: 1,
-      title: "Grant Writing Services",
-      subtitle: "We Secure Funding For You",
+      title: "Grant Proposal Writing",
+      subtitle: "Crafting clear, compelling proposals",
       description:
-        "Professional grant writing services that have secured over $50M in funding for organizations nationwide.",
+        "Crafting clear, compelling, and funder-focused proposals that highlight your mission’s impact. From narrative to budget, we handle every component with precision.",
       imagePath: "/imgs/services/1.webp",
-      buttonText: "View Sample Grants",
+      buttonText: "Learn More",
       link: "/grant-writing",
       color: "from-green-600 to-green-700",
     },
     {
       id: 2,
-      title: "Business Consulting",
-      subtitle: "We Strategize Your Growth",
+      title: "Grant Research & Prospecting",
+      subtitle: "Finding the right opportunities",
       description:
-        "Professional grant writing services that have secured over $50M in funding for organizations nationwide.",
+        "Finding the right opportunities is half the battle. Our team researches funding sources aligned with your mission, increasing your chances of success.",
       imagePath: "/imgs/services/2.webp",
-      buttonText: "View Case Studies",
-      link: "/consulting",
-      color: "from-blue-600 to-blue-700",
+      buttonText: "Explore Research",
+      link: "/grant-research",
+      color: "from-teal-600 to-teal-700",
     },
     {
       id: 3,
-      title: "Program Development",
-      subtitle: "We Build Your Programs",
+      title: "Editing & Review Services",
+      subtitle: "Refine drafts for maximum impact",
       description:
-        "Professional grant writing services that have secured over $50M in funding for organizations nationwide.",
+        "Already have a draft? We refine it to ensure compliance, clarity, and persuasiveness so that funders see your proposal at its best.",
       imagePath: "/imgs/services/3.webp",
-      buttonText: "View Sample Programs",
-      link: "/program-development",
+      buttonText: "Request Edit",
+      link: "/editing-review",
+      color: "from-amber-600 to-amber-700",
+    },
+    {
+      id: 4,
+      title: "Budget Planning Assistance",
+      subtitle: "Align numbers with your narrative",
+      description:
+        "A strong budget tells a powerful story. We help you align your numbers with your narrative to create a funder-ready plan.",
+      imagePath: "/imgs/services/1.webp",
+      buttonText: "View Budget Help",
+      link: "/budget-planning",
+      color: "from-indigo-600 to-indigo-700",
+    },
+    {
+      id: 5,
+      title: "Training & Workshops",
+      subtitle: "Empower your team",
+      description:
+        "For teams that want to strengthen in-house skills, we provide training that demystifies the grant writing process and empowers staff to succeed.",
+      imagePath: "/imgs/services/2.webp",
+      buttonText: "Schedule Training",
+      link: "/training-workshops",
       color: "from-purple-600 to-purple-700",
     },
   ];
@@ -75,21 +97,21 @@ const ServicesShowcase = () => {
       <div className="container">
         <SectionHeader
           subtitle="Our Services"
-          title="Professional Service Solutions"
+          title="What We Do For You?"
           titleLevel="h2"
-          highlightedText="Solutions"
-          description="Comprehensive business solutions tailored to help your organization grow, secure funding, and achieve sustainable success in today's competitive market."
+          highlightedText="For You"
+          description="Explore the services designed to help you secure funding faster and smarter."
           subtitleIcon="🚀"
           maxWidth="max-w-5xl"
         />
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid lg:grid-cols-5 gap-5 mb-12">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="group relative bg-transparent rounded-2xl transition-all duration-500 overflow-hidden"
+              className="group relative bg-white border border-neutral-200 rounded-2xl transition-all duration-500 overflow-hidden h-full"
             >
-              <div className="relative">
+              <div className="relative p-5">
                 <Image
                   src={service.imagePath}
                   alt={service.title}
@@ -100,10 +122,12 @@ const ServicesShowcase = () => {
               </div>
 
               <div className="mt-4 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-gray-900 mb-2 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-3">{service.description}</p>
+                <p className="text-gray-600 mb-3 text-base">
+                  {service.description}
+                </p>
 
                 <Link
                   href={service.link}

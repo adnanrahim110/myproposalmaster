@@ -24,6 +24,8 @@ const initialFormState = {
 };
 
 const ServiceHero = ({ service }) => {
+  const hero = service?.hero || {};
+
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -88,25 +90,23 @@ const ServiceHero = ({ service }) => {
                   icon={<Sparkles className="h-4 w-4 text-primary-300" />}
                   textClassName="bg-white/10 backdrop-blur-md border border-white/20 text-white"
                 >
-                  {service?.title || "Our Services"}
+                  {service.title}
                 </Subtitle>
 
                 <Title
                   as="h1"
-                  highlightedText={service?.title}
                   className="text-4xl md:text-5xl lg:text-6xl text-white"
                   highlightClassName="text-primary-400"
                 >
-                  Elevate Your Impact with Expert {service?.title}
+                  {hero.title}
                 </Title>
 
                 <p className="max-w-2xl text-lg leading-relaxed text-gray-200/90">
-                  {service?.description ||
-                    "Partner with our team to unlock tailored strategies, experienced execution, and measurable results that move your mission forward."}
+                  {hero.text}
                 </p>
               </div>
 
-              {bulletPoints.length ? (
+              {hero.points.length ? (
                 <motion.ul
                   className="grid gap-4 sm:grid-cols-2"
                   initial={{ opacity: 0, y: 12 }}
@@ -114,7 +114,7 @@ const ServiceHero = ({ service }) => {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  {bulletPoints.map((feature) => (
+                  {hero.points.map((feature) => (
                     <li
                       key={feature}
                       className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/10 p-4 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.95)] backdrop-blur"
@@ -129,17 +129,6 @@ const ServiceHero = ({ service }) => {
                   ))}
                 </motion.ul>
               ) : null}
-
-              <div className="flex flex-wrap gap-6 text-sm text-gray-300">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="h-5 w-5 text-primary-300" />
-                  <span>Certified specialists on every project</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-primary-300" />
-                  <span>Response within 1 business day</span>
-                </div>
-              </div>
             </div>
 
             <motion.div
@@ -180,11 +169,7 @@ const ServiceHero = ({ service }) => {
                   ) : null}
                 </AnimatePresence>
 
-                <form
-                  className="space-y-5"
-                  onSubmit={handleSubmit}
-                  noValidate
-                >
+                <form className="space-y-5" onSubmit={handleSubmit} noValidate>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <FormField
                       label="Full Name"
@@ -260,8 +245,8 @@ const ServiceHero = ({ service }) => {
                     </Button>
                     <p className="text-xs text-gray-400/90">
                       By submitting this form you agree to our privacy policy
-                      and consent to receive communications about {service?.title}
-                      .
+                      and consent to receive communications about{" "}
+                      {service?.title}.
                     </p>
                   </div>
                 </form>
@@ -282,13 +267,7 @@ const ServiceHero = ({ service }) => {
   );
 };
 
-const FormField = ({
-  label,
-  id,
-  icon: Icon,
-  className,
-  ...inputProps
-}) => {
+const FormField = ({ label, id, icon: Icon, className, ...inputProps }) => {
   return (
     <label className={cn("space-y-2 text-sm text-gray-200", className)}>
       <span className="font-semibold text-gray-100">{label}</span>
@@ -309,12 +288,7 @@ const FormField = ({
   );
 };
 
-const FormTextArea = ({
-  label,
-  id,
-  className,
-  ...textareaProps
-}) => {
+const FormTextArea = ({ label, id, className, ...textareaProps }) => {
   return (
     <label className={cn("space-y-2 text-sm text-gray-200", className)}>
       <span className="font-semibold text-gray-100">{label}</span>

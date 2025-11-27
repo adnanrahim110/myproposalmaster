@@ -7,34 +7,32 @@ import { useMemo, useState } from "react";
 
 const defaultFaqs = [
   {
-    question: "How long does it take to build a complete plan?",
-    answer:
-      "Most engagements run 4–6 weeks from kickoff to final delivery. We include structured checkpoints for feedback and can accelerate timelines for investor or grant deadlines.",
+    q: "How long does it take to build a complete plan?",
+    a: "Most engagements run 4–6 weeks from kickoff to final delivery. We include structured checkpoints for feedback and can accelerate timelines for investor or grant deadlines.",
   },
   {
-    question: "How is pricing structured?",
-    answer:
-      "We scope based on complexity, supporting research, and deliverables required. Fixed-fee proposals outline milestones, review rounds, and any optional add-ons before we begin.",
+    q: "How is pricing structured?",
+    a: "We scope based on complexity, supporting research, and deliverables required. Fixed-fee proposals outline milestones, review rounds, and any optional add-ons before we begin.",
   },
   {
-    question: "Do you collaborate with our internal team?",
-    answer:
-      "Absolutely. We facilitate discovery workshops, align with internal SMEs, and co-create messaging to ensure the final plan reflects your voice and strategic priorities.",
+    q: "Do you collaborate with our internal team?",
+    a: "Absolutely. We facilitate discovery workshops, align with internal SMEs, and co-create messaging to ensure the final plan reflects your voice and strategic priorities.",
   },
   {
-    question: "What happens after we receive the plan?",
-    answer:
-      "Your team receives editable source files, investor-ready decks, and implementation guidance. We also offer support for investor Q&A, revisions, and board presentations.",
+    q: "What happens after we receive the plan?",
+    a: "Your team receives editable source files, investor-ready decks, and implementation guidance. We also offer support for investor Q&A, revisions, and board presentations.",
   },
 ];
 
 const ServiceFAQSection = ({ service }) => {
-  const faqs = useMemo(() => {
-    if (Array.isArray(service?.faqs) && service.faqs.length) {
-      return service.faqs;
-    }
-    return defaultFaqs;
-  }, [service?.faqs]);
+  const faqs = service.faqs || defaultFaqs;
+  const faqsPart2 = service.faqPart2 || null;
+
+  const points = faqsPart2.points || [
+    "Dedicated strategist and researcher on every engagement.",
+    "Investor and grant-maker ready deliverables, aligned to your brand.",
+    "Post-delivery coaching for pitches, board sessions, or grant reviews.",
+  ];
 
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -77,8 +75,8 @@ const ServiceFAQSection = ({ service }) => {
                     onClick={() => toggleIndex(index)}
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <span className="text-base font-semibold text-slate-900 md:text-lg">
-                      {faq.question}
+                    <span className="text-lg font-semibold text-slate-900 md:text-xl">
+                      {faq.q}
                     </span>
                     <span
                       className={`flex h-10 w-10 items-center justify-center rounded-full border border-primary-200/50 bg-primary-50/70 text-primary-500 transition-transform duration-300 ${
@@ -101,8 +99,8 @@ const ServiceFAQSection = ({ service }) => {
                           ease: [0.25, 0.1, 0.25, 1],
                         }}
                       >
-                        <div className="border-t border-primary-100/40 px-6 py-5 text-sm leading-relaxed text-slate-600 md:text-base">
-                          {faq.answer}
+                        <div className="border-t border-primary-100/40 px-6 py-5 text-base text-slate-600 md:text-lg">
+                          {faq.a}
                         </div>
                       </motion.div>
                     ) : null}
@@ -123,31 +121,33 @@ const ServiceFAQSection = ({ service }) => {
               delay: 0.2,
             }}
           >
-            <div className="flex items-center gap-3 rounded-2xl border border-primary-100 bg-primary-50/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary-600">
-              <Sparkles className="h-4 w-4" />
-              Why clients trust us
+            <div className="space-y-2">
+              <div className="flex justify-start w-fit items-center gap-3 rounded-2xl border border-primary-100 bg-primary-50/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary-600">
+                <Sparkles className="h-4 w-4" />
+                Why clients trust us
+              </div>
+              <h3 className="text-2xl">
+                {faqsPart2.title || "Why clients trust us"}
+              </h3>
+              <p className="text-base text-slate-700">
+                {faqsPart2.text ||
+                  "We blend grant writing, market intelligence, and financial modeling under one roof. That means your stakeholders receive a cohesive, persuasive plan without juggling agencies or contractors."}
+              </p>
             </div>
-            <p className="text-base text-slate-700 md:text-lg leading-relaxed">
-              We blend grant writing, market intelligence, and financial
-              modeling under one roof. That means your stakeholders receive a
-              cohesive, persuasive plan without juggling agencies or
-              contractors.
-            </p>
             <ul className="space-y-3 text-sm md:text-base text-slate-700">
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary-500" />
-                Dedicated strategist and researcher on every engagement.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary-500" />
-                Investor and grant-maker ready deliverables, aligned to your
-                brand.
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary-500" />
-                Post-delivery coaching for pitches, board sessions, or grant
-                reviews.
-              </li>
+              {points.map((point, idx) => (
+                <li key={idx} className="flex items-start gap-2">
+                  <span className="shrink-0 mt-1 h-2 w-2 rounded-full bg-primary-500" />
+                  {point.t ? (
+                    <span>
+                      <strong>{point.t}: </strong>
+                      {point.d}
+                    </span>
+                  ) : (
+                    point
+                  )}
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>

@@ -39,9 +39,8 @@ const SectionHeader = ({
         className={cn(highlightedText ? "mb-1" : "mb-3", titleClassName)}
         isInView={isInView}
         delay={0.3}
-      >
-        {title}
-      </Title>
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
 
       {description && (
         <motion.p

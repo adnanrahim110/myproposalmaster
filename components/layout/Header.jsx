@@ -169,7 +169,7 @@ const Header = () => {
                                 href={subItem.href}
                                 onClick={() => setActiveDropdown(null)}
                                 className={cn(
-                                  "block px-4 py-3 text-gray-700 font-medium transition-all duration-400 relative overflow-hidden group/item",
+                                  "block pl-4 pr-20 py-3 text-gray-700 font-medium transition-all duration-400 relative overflow-hidden group/item text-base",
                                   pathname !== subItem.href &&
                                     "hover:bg-gradient-to-r hover:from-primary-50/80 hover:via-primary-25/60 hover:to-primary-50/80 hover:text-primary-800 hover:translate-x-3",
                                   "before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-primary-400 before:via-primary-500 before:to-primary-600",
@@ -179,7 +179,7 @@ const Header = () => {
                                   pathname !== subItem.href &&
                                     "hover:after:opacity-70 hover:after:translate-x-0 after:content-['→'] after:text-primary-600 after:font-bold after:text-lg",
                                   pathname === subItem.href &&
-                                    "bg-gradient-to-r from-primary-100/60 via-primary-75/40 to-primary-100/60 text-primary-900 font-semibold translate-x-3 before:scale-y-100",
+                                    "bg-gradient-to-r from-primary-100/60 via-primary-75/40 to-primary-100/60 text-primary-900 font-semibold before:scale-y-100",
                                   "border-b border-gray-200/40 last:border-b-0",
                                   pathname !== subItem.href &&
                                     "hover:border-primary-200/30",

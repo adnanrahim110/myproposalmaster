@@ -16,31 +16,33 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       id: "01",
-      title: "MBA-EDUCATED EXPERTS",
-      description: "Work one-on-one with MBA writers who know your industry.",
-      icon: GraduationCap,
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      id: "02",
       title: "PROVEN SUCCESS",
-      description: "Clients have raised over $2 Billion+ with our plans.",
+      description:
+        "Over $25M secured in competitive grants across healthcare, education, environment, and community programs.",
       icon: TrendingUp,
       color: "from-green-500 to-green-600",
     },
     {
-      id: "03",
-      title: "CUSTOM & COMPREHENSIVE",
+      id: "02",
+      title: "TAILORED APPROACH",
       description:
-        "Each plan is tailored to your business - no templates ever.",
+        "Every proposal is customized; we never use one-size-fits-all templates.",
       icon: Sparkles,
       color: "from-purple-500 to-purple-600",
     },
     {
-      id: "04",
-      title: "FAST TURNAROUND",
+      id: "03",
+      title: "EXPERTISE ACROSS SECTORS",
       description:
-        "Complete professional plans delivered in as fast as 2 weeks.",
+        "Our writers come from nonprofit leadership, academia, and business, bringing insider knowledge.",
+      icon: GraduationCap,
+      color: "from-blue-500 to-blue-600",
+    },
+    {
+      id: "04",
+      title: "RELATIONSHIP-FOCUSED",
+      description:
+        "We see every client as a long-term partner, not just a project.",
       icon: Clock,
       color: "from-orange-500 to-orange-600",
     },
@@ -57,12 +59,13 @@ const WhyChooseUs = () => {
 
       <div className="container relative z-10">
         <SectionHeader
-          subtitle="Why Choose Us"
-          title="Why Choose My Proposal Masters?"
+          maxWidth="max-w-5xl"
+          subtitle="Why Choose Us?"
+          title="Why Make Us The Best In Class? <br/> Experience. Precision. Results."
           titleLevel="h2"
-          highlightedText="My Proposal Masters?"
-          description="Discover what sets us apart in the business planning industry and why thousands trust us"
-          subtitleIcon="?"
+          highlightedText="Experience. Precision. Results."
+          description="When it comes to funding, trust is everything. Here’s why organizations choose us again and again:"
+          subtitleIcon=""
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
@@ -220,4 +223,3 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
-

@@ -49,6 +49,9 @@ const defaultSteps = [
 ];
 
 const ServiceProcessSection = ({ service }) => {
+  const sec3 = service?.sec3 || {};
+  const cards = sec3?.cards || [];
+
   const steps = useMemo(() => {
     if (service?.process?.length) {
       return service.process.map((step, index) => ({
@@ -71,42 +74,42 @@ const ServiceProcessSection = ({ service }) => {
         <SectionHeader
           subtitle="How We Partner"
           subtitleIcon={<ClipboardList className="w-4 h-4" />}
-          title={`How Our ${service?.title || "Service"} Process Works`}
+          title={sec3.title}
           highlightedText={service?.title}
-          description="A transparent, collaborative workflow that keeps your stakeholders informed at every milestone."
+          description={sec3.text && sec3.text}
           className="mb-14"
           descriptionClassName="text-base md:text-lg text-slate-600"
           maxWidth="max-w-3xl"
         />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
+          {cards.map((card, idx) => (
             <motion.div
-              key={`${step.title}-${index}`}
+              key={`${card.title}-${idx}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{
                 duration: 0.45,
-                delay: index * 0.07,
+                delay: idx * 0.07,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               className="group rounded-3xl border border-primary-100/60 bg-white/80 p-6 backdrop-blur transition hover:-translate-y-2 hover:border-primary-200 hover:shadow-[0_38px_20px_-40px_rgba(15,23,42,0.55)]"
             >
               <div className="flex items-center justify-between text-sm font-semibold text-primary-500">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary-200 to-primary-500 text-white shadow-inner">
-                  {String(index + 1).padStart(2, "0")}
+                  {String(idx + 1).padStart(2, "0")}
                 </span>
                 <span className="text-xs uppercase tracking-wide text-slate-400">
-                  {index < 4 ? "Planning" : index < 7 ? "Execution" : "Launch"}
+                  {card.status}
                 </span>
               </div>
               <hr className="my-4 border-primary-100/70" />
               <h3 className="text-lg font-semibold text-slate-900">
-                {step.title}
+                {card.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600/90">
-                {step.description}
+                {card.text}
               </p>
             </motion.div>
           ))}
