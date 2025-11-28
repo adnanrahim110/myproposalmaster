@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowRight,
   DollarSign,
   FileText,
   Globe,
@@ -20,55 +19,55 @@ const ServicesGridSection = () => {
   const services = [
     {
       id: 1,
-      icon: Globe,
-      title: "Custom Websites",
+      icon: Monitor,
+      title: "Digital Marketing",
       description:
-        "Are you looking for a custom website that truly reflects the unique personality of your...",
-      category: "Web Development",
-      color: "blue",
+        "At My Proposal Master, we know getting a grant isn’t just about writing a great proposal—it’s about being seen. Our digital marketing services help your organization reach the right audience, whether through social media, email campaigns, or content strategies. We make sure your story gets noticed so your mission can make the impact it deserves.",
+      category: "Marketing",
+      color: "cyan",
     },
     {
       id: 2,
       icon: Palette,
       title: "Logo & Branding",
       description:
-        "Are you looking to create a unique and memorable logo for your business? Look no further!...",
+        "Your brand says a lot about you. With My Proposal Master, we help you create a look and feel that shows funders who you are and why you matter. From logos to overall branding, we make sure your organization looks professional, trustworthy, and ready to make a difference.",
       category: "Design",
       color: "purple",
     },
     {
       id: 3,
-      icon: Users,
-      title: "Business Formations",
+      icon: Globe,
+      title: "Custom Websites (Web Development)",
       description:
-        "Starting a business can be an overwhelming and complex process. That's why we created...",
-      category: "Legal Services",
-      color: "green",
+        "A website can be your best advocate. At My Proposal Master, we build custom websites that tell your story clearly and beautifully. From easy navigation to clean design, we make sure funders can see the impact you’re creating—and why it’s worth supporting.",
+      category: "Web Development",
+      color: "blue",
     },
     {
       id: 4,
       icon: FileText,
-      title: "Business Licensing",
+      title: "Pitch Deck",
       description:
-        "Starting a business has never been easier than with our business licensing service...",
-      category: "Legal Services",
+        "Sometimes, showing is better than telling. That’s why My Proposal Master creates pitch decks that bring your ideas to life. We turn your project goals, strategies, and impact into a clear, engaging visual story that makes funders sit up and take notice.",
+      category: "Presentation",
       color: "orange",
     },
     {
       id: 5,
-      icon: Monitor,
-      title: "Digital Marketing",
+      icon: Users,
+      title: "Business Proposal",
       description:
-        "Struggling to create successful digital marketing campaigns? One solution to manage all of your...",
-      category: "Marketing",
-      color: "cyan",
+        "Writing a proposal doesn’t have to be stressful. My Proposal Master crafts business proposals that clearly explain your mission, show your plan, and connect with funders on what matters most. We turn your ideas into opportunities, so your project has the best chance to get funded.",
+      category: "Business",
+      color: "green",
     },
     {
       id: 6,
       icon: DollarSign,
-      title: "Business Credit",
+      title: "Budget Planning",
       description:
-        "Are you an entrepreneur looking to boost your business's creditworthiness? With our...",
+        "Numbers can feel tricky, but they don’t have to be. My Proposal Master helps you plan budgets that make sense, are easy to follow, and show funders you’re responsible with their support. A strong, clear budget strengthens your proposal and builds trust with those who can help bring your vision to life.",
       category: "Financial",
       color: "red",
     },
@@ -138,10 +137,6 @@ const ServicesGridSection = () => {
           >
             More Ways My Proposal Masters Can Help You Succeed
           </Title>
-
-          <Button variant="primary" size="lg" className="mb-6 xl:mb-12">
-            START YOUR ROADMAP
-          </Button>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -190,11 +185,6 @@ const ServicesGridSection = () => {
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
                   {service.description}
                 </p>
-
-                <div className="flex items-center text-primary-600 font-semibold text-sm group-hover:text-primary-700 transition-colors duration-300">
-                  <span>Read More</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </div>
               </motion.div>
             );
           })}
@@ -212,7 +202,7 @@ const ServicesGridSection = () => {
           viewport={{ once: true, margin: "-120px" }}
           className="text-center"
         >
-          <Button variant="primary" size="lg">
+          <Button href="/contact" variant="primary" size="lg">
             NEED APPLY
           </Button>
         </motion.div>

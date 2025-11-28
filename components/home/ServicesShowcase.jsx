@@ -95,7 +95,7 @@ const ServicesShowcase = () => {
           maxWidth="max-w-5xl"
         />
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-5 mb-12">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-5 mb-12">
           {services.map((service, idx) => (
             <div
               key={idx}
