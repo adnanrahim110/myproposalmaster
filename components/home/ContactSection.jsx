@@ -279,7 +279,6 @@ const ContactSection = () => {
                     );
                   })}
                 </div>
-                {/* Premium concierge layout */}
                 {(() => {
                   const phone = CONTACT_DETAILS.find((c) => c.name === "Call");
                   const email = CONTACT_DETAILS.find((c) => c.name === "Email");
@@ -355,7 +354,6 @@ const ContactSection = () => {
                             <div className="font-semibold text-gray-900 truncate">
                               {visit?.value}
                             </div>
-                            <div className="mt-3 h-24 w-full rounded-xl bg-[linear-gradient(135deg,rgba(254,57,17,0.12),transparent_40%),linear-gradient(45deg,rgba(59,130,246,0.12),transparent_45%)] border border-gray-200" />
                           </div>
                         </div>
                       </div>

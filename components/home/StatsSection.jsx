@@ -7,7 +7,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const AnimatedCounter = ({
   from,
@@ -55,38 +55,39 @@ const StatsSection = () => {
   const stats = [
     {
       id: "founded",
-      from: 2008,
-      to: 2010,
-      format: "year",
-      label: "FOUNDED IN",
+      from: 0,
+      to: 10,
+      suffix: "+",
+      format: "number",
+      label: "YEARS EXPERIENCE",
       delay: 0,
     },
     {
       id: "funding",
       from: 0,
-      to: 2,
+      to: 1,
       format: "decimal",
       prefix: "$",
-      suffix: "Bn+",
+      suffix: "M+",
       label: "FUNDING RAISED",
       delay: 0.2,
     },
     {
       id: "plans",
       from: 0,
-      to: 15000,
+      to: 100,
       format: "number",
       suffix: "+",
-      label: "WRITTEN BUSINESS PLANS",
+      label: "SATISFIED CLIENTS",
       delay: 0.4,
     },
     {
       id: "industries",
       from: 0,
-      to: 400,
+      to: 96,
       format: "number",
-      suffix: "+",
-      label: "BUSINESS INDUSTRIES",
+      suffix: "%",
+      label: "RECURRING CLIENTS",
       delay: 0.6,
     },
   ];

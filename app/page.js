@@ -16,7 +16,6 @@ export default function Home() {
       <ServicesShowcase />
       <StatsSection />
       <WhyChooseUs />
-      <LeadershipVideo />
       <TrustedPartners />
       <TestimonialsSection />
       <ServicesGridSection />

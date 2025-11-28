@@ -24,8 +24,8 @@ const Footer = () => {
 
       <div className="relative">
         <div className="container mx-auto px-4 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-4">
+          <div className="grid grid-cols-1 lg:grid-cols-[24%_auto] gap-10">
+            <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -40,10 +40,10 @@ const Footer = () => {
                       alt="My Proposal Masters"
                       width={200}
                       height={60}
-                      className="h-20 w-auto"
+                      className="h-20 -ml-10 w-auto"
                     />
                   </div>
-                  <p className="text-gray-300 leading-relaxed text-lg">
+                  <p className="text-gray-300 text-lg -ml-5">
                     Transforming business visions into reality through strategic
                     excellence, innovative solutions, and unwavering commitment
                     to your success.
@@ -52,7 +52,7 @@ const Footer = () => {
               </motion.div>
             </div>
 
-            <div className="lg:col-span-8">
+            <div>
               <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ const Footer = () => {
                     <ArrowRight className="w-5 h-5 text-primary-400" />
                     Quick Links
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 pl-4">
                     <li>
                       <Link
                         href="/"
@@ -94,13 +94,13 @@ const Footer = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="lg:col-span-4"
+                  className="lg:col-span-5"
                 >
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <ArrowRight className="w-5 h-5 text-primary-400" />
                     Our Services
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-1.5 pl-4">
                     {services.map((service) => (
                       <li key={service.name}>
                         <Link
@@ -120,7 +120,7 @@ const Footer = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="lg:col-span-5"
+                  className="lg:col-span-4"
                 >
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <ArrowRight className="w-5 h-5 text-primary-400" />
@@ -146,7 +146,7 @@ const Footer = () => {
                             <div className="font-medium text-white mb-1">
                               {contact.name} Us
                             </div>
-                            <div>1-800-496-1056</div>
+                            <div>{contact.value}</div>
                           </div>
                         </Wrapper>
                       );

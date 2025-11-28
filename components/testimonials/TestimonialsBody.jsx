@@ -1,72 +1,72 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import { useRef } from "react";
 
 const TESTIMONIALS = [
   {
     quote:
-      "The attention to detail and personalized approach made all the difference. They helped us secure the funding we needed to expand our community programs.",
-    author: "Sarah Mitchell",
-    role: "Executive Director",
-    initials: "SM",
-    rating: 5,
-  },
-  {
-    quote:
-      "Outstanding consulting services that transformed our organization. Strategic guidance helped us increase our impact by 300% in just one year.",
-    author: "Michael Rodriguez",
-    role: "CEO",
-    initials: "MR",
-    rating: 5,
-  },
-  {
-    quote:
-      "Professional, knowledgeable, and results‑driven. They secured multiple grants for our initiatives and provided excellent ongoing support.",
-    author: "Jennifer Chen",
-    role: "Program Manager",
-    initials: "JC",
-    rating: 5,
-  },
-  {
-    quote:
-      "Exceptional fundraising expertise that exceeded our expectations. Their innovative approach helped us raise more funds than we thought possible.",
-    author: "David Thompson",
-    role: "Board Chair",
-    initials: "DT",
-    rating: 5,
-  },
-  {
-    quote:
-      "Their interim leadership support was invaluable during our transition period. Professional, experienced, and truly caring about our mission.",
-    author: "Lisa Anderson",
-    role: "Board Member",
-    initials: "LA",
-    rating: 5,
-  },
-  {
-    quote:
-      "Incredible program development that brought our vision to life. We created sustainable programs serving hundreds of families.",
-    author: "Robert Kim",
-    role: "Founder",
-    initials: "RK",
-    rating: 5,
-  },
-  {
-    quote:
-      "Sharp market insight and flawless execution. From grant strategy to compliance, they delivered at every step.",
+      "Our team had passion but no time to translate it into a polished proposal. Their grant proposal writing and research support changed everything. They helped us identify the right federal program, shaped a powerful narrative, and guided us through every requirement. The result was a $450,000 award that is now funding our community health initiative.",
     author: "Emily Carter",
-    role: "Grants Lead",
+    role: "Executive Director",
     initials: "EC",
     rating: 5,
   },
   {
     quote:
-      "A true partner. They aligned stakeholders, clarified our roadmap, and helped us stand out to funders.",
-    author: "James Patel",
-    role: "COO",
-    initials: "JP",
+      "Their academic grant writing expertise was the missing piece for our research lab. They helped refine our aims, clarify our methodology, and align every section with agency criteria. With their support, our interdisciplinary project secured a major federal grant and a foundation award that will sustain our work for the next three years.",
+    author: "Dr. Marcus Allen",
+    role: "Principal Investigator",
+    initials: "MA",
+    rating: 5,
+  },
+  {
+    quote:
+      "As a growing tech startup, we knew grant funding could accelerate our roadmap but had no idea where to start. Their business grant writing team helped us define a clear value proposition, build a compelling case for innovation, and present our financials credibly. We secured a $275,000 state innovation grant that allowed us to hire staff and launch our pilot.",
+    author: "Jordan Mitchell",
+    role: "Founder & CEO, Meridian Analytics Inc.",
+    initials: "JM",
+    rating: 5,
+  },
+  {
+    quote:
+      "Before working with them, our funding efforts felt random and reactive. Their grant research and prospecting service gave us a focused pipeline of opportunities that actually matched our mission and eligibility. Within six months, we submitted fewer applications but tripled our success rate, including two multi-year foundation grants.",
+    author: "Vanessa Coleman",
+    role: "Director of Development, Bright Futures Youth Alliance",
+    initials: "VC",
+    rating: 5,
+  },
+  {
+    quote:
+      "We came to them with a solid draft that still wasn’t getting funded. Their editing and review service was the difference. They tightened the language, fixed compliance gaps, and showed us how to highlight outcomes more convincingly. The revised proposal was funded on the next round for $190,000.",
+    author: "Christopher Hayes",
+    role: "Program Manager, Midwest Housing Initiative",
+    initials: "CH",
+    rating: 5,
+  },
+  {
+    quote:
+      "Budget development had always been the most stressful part of our applications. Their team helped us build a clear, compliant budget that aligned perfectly with our narrative and funder rules. Reviewers specifically praised the financial clarity in their feedback, and we were awarded a $900,000 multi-year grant.",
+    author: "Laura Jennings",
+    role: "Chief Financial Officer, Harbor Hope Family Services",
+    initials: "LJ",
+    rating: 5,
+  },
+  {
+    quote:
+      "We didn’t just need one proposal; we needed a long-term funding strategy. Their strategic grant consulting and capacity-building support helped us map a three-year funding plan, improve internal processes, and train staff on grant readiness. Our annual grant revenue has more than doubled, and our leadership team finally feels in control of the funding pipeline.",
+    author: "Anthony Brooks",
+    role: "Chief Executive Officer, Summit Pathways Services",
+    initials: "AB",
+    rating: 5,
+  },
+  {
+    quote:
+      "As a brand-new nonprofit, we were unsure how to present ourselves to funders with no track record. Their nonprofit startup grant support walked us through mission clarity, funder targeting, and first-time budgeting. Our very first proposal received a $65,000 grant, which opened the door to additional opportunities we never would have attempted on our own.",
+    author: "Rachel Morgan",
+    role: "Founder, SafeSteps Youth Outreach",
+    initials: "RM",
     rating: 5,
   },
 ];
@@ -127,8 +127,6 @@ const Card = ({ t, index, featured = false }) => {
 
 const TestimonialsBody = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
     <section
       ref={ref}
@@ -162,17 +160,8 @@ const TestimonialsBody = () => {
           <div>Since 2010</div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8 lg:mb-12">
-          <div className="lg:col-span-7">
-            <Card t={TESTIMONIALS[0]} index={0} featured />
-          </div>
-          <div className="lg:col-span-5 grid grid-cols-1 gap-6">
-            <Card t={TESTIMONIALS[1]} index={1} />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TESTIMONIALS.slice(2).map((t, idx) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {TESTIMONIALS.map((t, idx) => (
             <Card
               key={t.author + idx}
               t={t}
