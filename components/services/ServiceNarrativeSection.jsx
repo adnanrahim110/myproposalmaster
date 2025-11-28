@@ -2,16 +2,7 @@
 
 import SectionHeader from "@/components/ui/SectionHeader";
 import { motion } from "framer-motion";
-import {
-  Award,
-  Briefcase,
-  CheckCircle,
-  CheckCircle2,
-  LineChart,
-  Target,
-  UsersRound,
-} from "lucide-react";
-import { useMemo } from "react";
+import { Briefcase, CheckCircle } from "lucide-react";
 
 const ServiceNarrativeSection = ({ service }) => {
   const sec1 = service?.sec1 || {};
@@ -21,7 +12,7 @@ const ServiceNarrativeSection = ({ service }) => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary-50/20 to-white py-24">
-      <div className="container relative grid gap-16 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
+      <div className="container relative grid gap-10 xl:gap-16 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
         <div className="space-y-10">
           <SectionHeader
             subtitle="Strategic Partnership"
@@ -85,7 +76,7 @@ const ServiceNarrativeSection = ({ service }) => {
                     )}
                     <div>
                       <p className="font-semibold text-slate-900">{point.t}</p>
-                      <p>{point.d}</p>
+                      <p className="text-xs xl:text-sm">{point.d}</p>
                     </div>
                   </li>
                 ))}
@@ -102,10 +93,10 @@ const ServiceNarrativeSection = ({ service }) => {
               {box3.points.map((feature) => (
                 <li
                   key={feature}
-                  className="rounded-2xl border border-primary-100 bg-white/90 p-3 transition hover:-translate-y-1 hover:border-primary-200 leading-tight"
+                  className="rounded-2xl border border-primary-100 bg-white/90 p-3 transition hover:-translate-y-1 hover:border-primary-200 leading-none xl:leading-tight"
                 >
-                  <CheckCircle className="inline text-primary mr-1" />
-                  <span className="text-sm font-medium text-slate-800">
+                  <CheckCircle className="max-xl:size-5 inline text-primary mr-1" />
+                  <span className="text-[10px] xl:text-sm font-medium text-slate-800">
                     {feature}
                   </span>
                 </li>

@@ -23,8 +23,8 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 via-transparent to-primary-800/5"></div>
 
       <div className="relative">
-        <div className="container mx-auto px-4 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-[24%_auto] gap-10">
+        <div className="max-w-5xl xl:container mx-auto px-4 lg:px-8 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[24%_auto] gap-7 xl:gap-10">
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -40,10 +40,10 @@ const Footer = () => {
                       alt="My Proposal Masters"
                       width={200}
                       height={60}
-                      className="h-20 -ml-10 w-auto"
+                      className="h-16 xl:h-20 -ml-10 w-auto"
                     />
                   </div>
-                  <p className="text-gray-300 text-lg -ml-5">
+                  <p className="text-gray-300 text-sm xl:text-lg -ml-5">
                     Transforming business visions into reality through strategic
                     excellence, innovative solutions, and unwavering commitment
                     to your success.
@@ -69,7 +69,7 @@ const Footer = () => {
                     <li>
                       <Link
                         href="/"
-                        className="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center gap-2 group"
+                        className="text-sm xl:text-lg text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center gap-2 group"
                       >
                         <div className="w-1 h-1 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         Home
@@ -79,7 +79,7 @@ const Footer = () => {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center gap-2 group"
+                          className="text-sm xl:text-lg text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center gap-2 group"
                         >
                           <div className="w-1 h-1 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                           {item.name}
@@ -105,7 +105,7 @@ const Footer = () => {
                       <li key={service.name}>
                         <Link
                           href={service.href}
-                          className="text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center gap-2 group"
+                          className="text-sm xl:text-lg text-gray-300 hover:text-primary-400 transition-colors duration-300 flex items-center gap-2 group"
                         >
                           <div className="w-1 h-1 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                           {service.name}
@@ -143,10 +143,12 @@ const Footer = () => {
                             <Icon className="w-5 h-5 text-primary-400" />
                           </div>
                           <div className="text-gray-300">
-                            <div className="font-medium text-white mb-1">
+                            <div className="font-medium text-white xl:mb-1">
                               {contact.name} Us
                             </div>
-                            <div>{contact.value}</div>
+                            <div className="max-xl:text-[13px]">
+                              {contact.value}
+                            </div>
                           </div>
                         </Wrapper>
                       );
@@ -159,7 +161,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 bg-black/20 backdrop-blur-sm">
-          <div className="container mx-auto px-4 lg:px-8 py-8">
+          <div className="container mx-auto px-0! py-4 xl:py-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +170,7 @@ const Footer = () => {
               className="flex flex-col md:flex-row justify-between items-center gap-6"
             >
               <div className="text-gray-400 text-center md:text-left">
-                <p className="text-base">
+                <p className="text-sm xl:text-base">
                   &copy; {currentYear} My Proposal Masters. All rights reserved.
                 </p>
               </div>

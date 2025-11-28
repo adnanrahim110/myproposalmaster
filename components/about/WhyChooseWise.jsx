@@ -71,13 +71,13 @@ const WhyChooseWise = () => {
                         <ArrowRight className="size-4" />
                       </span>
                     </div>
-                    <span className="text-gray-800 leading-relaxed">
+                    <span className="text-gray-800 text-sm xl:text-lg">
                       {item}
                     </span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-gray-700 leading-relaxed">
+              <p className="text-sm xl:text-lg mt-4 text-gray-700">
                 Together, we’ve secured millions in funding across federal,
                 state, and private foundations, positioning us as a trusted
                 partner for clients nationwide.
@@ -97,7 +97,10 @@ const WhyChooseWise = () => {
               </h4>
               <ul className="space-y-1.5">
                 {assurances.map(({ icon: Icon, title, text }) => (
-                  <li key={text} className="flex items-start gap-3">
+                  <li
+                    key={text}
+                    className="flex items-start gap-3 text-[15px] xl:text-lg"
+                  >
                     <div className="shrink-0 mt-1.5">
                       <Icon className="size-5 text-primary-600" />
                     </div>

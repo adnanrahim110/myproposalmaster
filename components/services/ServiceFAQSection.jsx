@@ -63,7 +63,7 @@ const ServiceFAQSection = ({ service }) => {
 
               return (
                 <motion.div
-                  key={faq.question}
+                  key={faq.q}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -75,7 +75,7 @@ const ServiceFAQSection = ({ service }) => {
                     onClick={() => toggleIndex(index)}
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <span className="text-lg font-semibold text-slate-900 md:text-xl">
+                    <span className="text-base font-semibold text-slate-900 xl:text-xl">
                       {faq.q}
                     </span>
                     <span
@@ -99,7 +99,7 @@ const ServiceFAQSection = ({ service }) => {
                           ease: [0.25, 0.1, 0.25, 1],
                         }}
                       >
-                        <div className="border-t border-primary-100/40 px-6 py-5 text-base text-slate-600 md:text-lg">
+                        <div className="border-t border-primary-100/40 px-6 py-5 text-sm text-slate-600 xl:text-lg">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -129,12 +129,12 @@ const ServiceFAQSection = ({ service }) => {
               <h3 className="text-2xl">
                 {faqsPart2.title || "Why clients trust us"}
               </h3>
-              <p className="text-base text-slate-700">
+              <p className="text-sm xl:text-base text-slate-700">
                 {faqsPart2.text ||
                   "We blend grant writing, market intelligence, and financial modeling under one roof. That means your stakeholders receive a cohesive, persuasive plan without juggling agencies or contractors."}
               </p>
             </div>
-            <ul className="space-y-3 text-sm md:text-base text-slate-700">
+            <ul className="space-y-3 text-sm xl:text-base text-slate-700">
               {points.map((point, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <span className="shrink-0 mt-1 h-2 w-2 rounded-full bg-primary-500" />

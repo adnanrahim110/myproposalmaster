@@ -1,17 +1,23 @@
 "use client";
 
 import SectionHeader from "@/components/ui/SectionHeader";
-import { motion, useInView } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Clock, GraduationCap, Sparkles, TrendingUp } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const WhyChooseUs = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-100px",
-    amount: 0.2,
-  });
+  const reduceMotion = useReducedMotion();
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setIsInView(true),
+      { rootMargin: "-120px", threshold: 0.2 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   const reasons = [
     {
@@ -79,29 +85,16 @@ const WhyChooseUs = () => {
                 className={`group relative ${
                   isEven ? "md:flex-row" : "md:flex-row-reverse"
                 } flex items-center gap-8`}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    x: isEven ? -80 : 80,
-                    scale: 0.8,
-                    rotateY: isEven ? -15 : 15,
-                  },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    scale: 1,
-                    rotateY: 0,
-                    transition: {
-                      duration: 1,
-                      delay: index * 0.15,
-                      ease: [0.25, 0.1, 0.25, 1],
-                      type: "spring",
-                      stiffness: 80,
-                      damping: 20,
-                    },
-                  },
+                initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                animate={
+                  isInView
+                    ? { opacity: 1, x: 0 }
+                    : { opacity: 0, x: isEven ? -20 : 20 }
+                }
+                transition={{
+                  duration: reduceMotion ? 0 : 0.45,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  delay: reduceMotion ? 0 : index * 0.08,
                 }}
               >
                 <div
@@ -110,21 +103,24 @@ const WhyChooseUs = () => {
                   }`}
                 >
                   <motion.div
-                    className={`relative w-24 h-24 rounded-3xl bg-gradient-to-br ${reason.color} flex items-center justify-center shadow-2xl cursor-pointer`}
-                    whileHover={{
-                      rotate: 0,
-                      scale: 1.1,
-                      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                    }}
-                    initial={{ rotate: 6 }}
-                    animate={{ rotate: 3 }}
-                    transition={{ duration: 0.3 }}
+                    className={`relative size-20 xl:size-24 rounded-3xl bg-gradient-to-br ${reason.color} flex items-center justify-center shadow-2xl cursor-pointer`}
+                    whileHover={
+                      reduceMotion
+                        ? {}
+                        : {
+                            scale: 1.05,
+                            boxShadow: "0 20px 40px -18px rgba(0,0,0,0.35)",
+                          }
+                    }
+                    initial={{ rotate: 2 }}
+                    animate={{ rotate: 0 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <Icon className="w-12 h-12 text-white drop-shadow-lg" />
+                    <Icon className="size-10 xl:size-12 text-white drop-shadow-lg" />
                     <div className="absolute inset-0 rounded-3xl bg-white/10"></div>
                   </motion.div>
 
-                  <div className="absolute -top-3 -right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                  <div className="absolute -top-3 -right-3 size-9 xl:size-10 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
                     <span className="text-base font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
                       {reason.id}
                     </span>
@@ -136,10 +132,10 @@ const WhyChooseUs = () => {
                     isEven ? "order-2" : "order-1"
                   } ${isEven ? "text-left" : "text-right md:text-right"}`}
                 >
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4 font-source-sans leading-tight">
+                  <h3 className="lg:text-2xl xl:text-3xl font-bold text-gray-800 mb-2.5 xl:mb-4 font-source-sans leading-tight">
                     {reason.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">
+                  <p className="text-gray-600 leading-relaxed xl:text-lg">
                     {reason.description}
                   </p>
 
@@ -149,7 +145,10 @@ const WhyChooseUs = () => {
                     } rounded-full ${isEven ? "mr-auto" : "ml-auto"}`}
                     initial={{ scaleX: 0 }}
                     animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.2 + 0.5 }}
+                    transition={{
+                      duration: reduceMotion ? 0 : 0.4,
+                      delay: reduceMotion ? 0 : index * 0.08 + 0.2,
+                    }}
                   ></motion.div>
                 </div>
               </motion.div>
@@ -168,11 +167,9 @@ const WhyChooseUs = () => {
               y: 0,
               scale: 1,
               transition: {
-                duration: 1,
-                delay: 1,
+                duration: reduceMotion ? 0 : 0.5,
+                delay: reduceMotion ? 0 : 0.4,
                 ease: [0.25, 0.1, 0.25, 1],
-                type: "spring",
-                stiffness: 100,
               },
             },
           }}
@@ -197,7 +194,7 @@ const WhyChooseUs = () => {
             <span className="text-gray-700 font-semibold text-lg">
               Trusted by{" "}
               <span className="bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent font-bold">
-                15,000+
+                10,000+
               </span>{" "}
               businesses worldwide
             </span>

@@ -1,6 +1,7 @@
 "use client";
 
 import SectionHeader from "@/components/ui/SectionHeader";
+import { cn } from "@/lib/cn";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -79,17 +80,6 @@ const ServicesShowcase = () => {
       link: "/budget-planning",
       color: "from-indigo-600 to-indigo-700",
     },
-    {
-      id: 5,
-      title: "Training & Workshops",
-      subtitle: "Empower your team",
-      description:
-        "For teams that want to strengthen in-house skills, we provide training that demystifies the grant writing process and empowers staff to succeed.",
-      imagePath: "/imgs/services/2.webp",
-      buttonText: "Schedule Training",
-      link: "/training-workshops",
-      color: "from-purple-600 to-purple-700",
-    },
   ];
 
   return (
@@ -105,40 +95,53 @@ const ServicesShowcase = () => {
           maxWidth="max-w-5xl"
         />
 
-        <div className="grid lg:grid-cols-5 gap-5 mb-12">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-5 mb-12">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="group relative bg-white border border-neutral-200 rounded-2xl transition-all duration-500 overflow-hidden h-full"
+              className={cn(
+                "group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white/90 shadow-[0_18px_48px_-36px_rgba(15,23,42,0.55)] transition-transform duration-300",
+                "hover:-translate-y-2 hover:shadow-[0_26px_70px_-48px_rgba(15,23,42,0.6)]"
+              )}
             >
-              <div className="relative p-5">
-                <Image
-                  src={service.imagePath}
-                  alt={service.title}
-                  width={323}
-                  height={179}
-                  className="w-full h-auto"
-                />
+              <div className="absolute inset-x-6 top-0 h-[3px] rounded-b-full bg-gradient-to-r from-slate-900/0 via-primary-200 to-slate-900/0" />
+
+              <div className="relative px-2 pt-5">
+                <div className="relative aspect-6/3 xl:aspect-4/3 overflow-hidden rounded-2xl bg-slate-100 border border-slate-100">
+                  <Image
+                    src={service.imagePath}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 420px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority={idx < 2}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+                </div>
               </div>
 
-              <div className="mt-4 text-center">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 transition-colors duration-300">
+              <div className="relative px-3 pb-6 pt-5 flex flex-col gap-3 text-left flex-1">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  <span>{service.subtitle}</span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-3 text-base">
+                <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
                   {service.description}
                 </p>
-
-                <Link
-                  href={service.link}
-                  className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold group/link transition-all duration-300 hover:gap-3 relative"
-                >
-                  <span className="relative">
-                    {service.buttonText}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover/link:w-full transition-all duration-300"></span>
-                  </span>
-                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:scale-110 transition-all duration-300" />
-                </Link>
+                <div className="flex items-center justify-between pt-2 mt-auto">
+                  <Link
+                    href={service.link}
+                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold group/link transition-all duration-200"
+                  >
+                    <span className="relative">
+                      {service.buttonText}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover/link:w-full transition-all duration-200"></span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-200" />
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

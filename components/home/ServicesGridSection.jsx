@@ -114,13 +114,15 @@ const ServicesGridSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-white py-20 lg:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-white py-16 xl:py-32">
       <div className="absolute inset-0 bg-gradient-to-r from-primary-50/50 to-blue-50/50" />
 
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          whileInView={
+            reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
+          }
           transition={{
             duration: reduceMotion ? 0 : 0.45,
             ease: [0.25, 0.1, 0.25, 1],
@@ -132,12 +134,12 @@ const ServicesGridSection = () => {
             as="h2"
             highlightedText="My Proposal Masters"
             highlightClassName="text-primary-600"
-            className="mb-6 mx-auto max-w-4xl"
+            className="mb-4 xl:mb-6 mx-auto max-w-4xl"
           >
             More Ways My Proposal Masters Can Help You Succeed
           </Title>
 
-          <Button variant="primary" size="lg" className="mb-12">
+          <Button variant="primary" size="lg" className="mb-6 xl:mb-12">
             START YOUR ROADMAP
           </Button>
         </motion.div>
@@ -200,7 +202,9 @@ const ServicesGridSection = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          whileInView={
+            reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
+          }
           transition={{
             duration: reduceMotion ? 0 : 0.4,
             ease: [0.25, 0.1, 0.25, 1],

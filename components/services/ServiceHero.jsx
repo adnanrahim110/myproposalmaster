@@ -95,13 +95,13 @@ const ServiceHero = ({ service }) => {
 
                 <Title
                   as="h1"
-                  className="text-4xl md:text-5xl lg:text-6xl text-white"
+                  className="text-4xl lg:text-[44px] xl:text-6xl text-white"
                   highlightClassName="text-primary-400"
                 >
                   {hero.title}
                 </Title>
 
-                <p className="max-w-2xl text-lg leading-relaxed text-gray-200/90">
+                <p className="max-w-2xl xl:text-lg text-gray-200/90">
                   {hero.text}
                 </p>
               </div>
@@ -122,7 +122,7 @@ const ServiceHero = ({ service }) => {
                       <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-400/30 to-primary-500/60 text-primary-100 ring-1 ring-primary-400/50">
                         <CheckCircle2 className="h-5 w-5" />
                       </span>
-                      <span className="text-sm md:text-base text-gray-100/95">
+                      <span className="text-sm xl:text-base text-gray-100/95">
                         {feature}
                       </span>
                     </li>
@@ -132,7 +132,7 @@ const ServiceHero = ({ service }) => {
             </div>
 
             <motion.div
-              className="relative isolate rounded-3xl border border-white/10 bg-white/[0.07] p-8 shadow-[0_28px_80px_-36px_rgba(15,23,42,0.9)] backdrop-blur-2xl"
+              className="relative isolate rounded-3xl border border-white/10 bg-white/[0.07] py-6 px-4 xl:p-8 shadow-[0_28px_80px_-36px_rgba(15,23,42,0.9)] backdrop-blur-2xl"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -228,7 +228,7 @@ const ServiceHero = ({ service }) => {
                     value={service?.id || ""}
                   />
 
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-3 mt-3">
                     <Button
                       type="submit"
                       variant="solid"
@@ -250,14 +250,6 @@ const ServiceHero = ({ service }) => {
                     </p>
                   </div>
                 </form>
-
-                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-xs text-gray-200">
-                  <Sparkles className="h-4 w-4 text-primary-200/90" />
-                  <span className="tracking-wide">
-                    Join 500+ mission-driven organizations already scaling with
-                    My Proposal Master.
-                  </span>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -269,8 +261,10 @@ const ServiceHero = ({ service }) => {
 
 const FormField = ({ label, id, icon: Icon, className, ...inputProps }) => {
   return (
-    <label className={cn("space-y-2 text-sm text-gray-200", className)}>
-      <span className="font-semibold text-gray-100">{label}</span>
+    <label className={cn("space-y-2 text-sm text-gray-200 block", className)}>
+      <span className="font-semibold text-gray-100 mb-1 inline-block">
+        {label}
+      </span>
       <div className="relative">
         {Icon ? (
           <Icon className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-primary-200" />

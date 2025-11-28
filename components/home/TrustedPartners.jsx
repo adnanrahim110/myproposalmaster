@@ -1,15 +1,9 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const TrustedPartners = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-100px",
-    amount: 0.3,
-  });
+  const reduceMotion = useReducedMotion();
 
   const partners = [
     {
@@ -40,19 +34,16 @@ const TrustedPartners = () => {
   ];
 
   return (
-    <section
-      ref={ref}
-      className="py-16 lg:py-20 bg-white border-y border-gray-100"
-    >
+    <section className="py-16 lg:py-20 bg-white border-y border-gray-100">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.6,
+            duration: reduceMotion ? 0 : 0.35,
             ease: [0.25, 0.1, 0.25, 1],
-            delay: 0.1,
           }}
+          viewport={{ once: true, margin: "-120px" }}
           className="text-center mb-12"
         >
           <p className="text-lg font-medium text-gray-600 mb-2">
@@ -63,26 +54,25 @@ const TrustedPartners = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.8,
+            duration: reduceMotion ? 0 : 0.4,
             ease: [0.25, 0.1, 0.25, 1],
-            delay: 0.3,
           }}
+          viewport={{ once: true, margin: "-120px" }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 items-center justify-items-center"
         >
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
-              }
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{
-                duration: 0.5,
+                duration: reduceMotion ? 0 : 0.3,
                 ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.5 + index * 0.1,
+                delay: reduceMotion ? 0 : 0.06 * index,
               }}
+              viewport={{ once: true, margin: "-120px" }}
               className="group relative"
             >
               <div className="relative overflow-hidden rounded-lg bg-gray-50 p-6 hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-200">
@@ -145,12 +135,12 @@ const TrustedPartners = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.6,
+            duration: reduceMotion ? 0 : 0.35,
             ease: [0.25, 0.1, 0.25, 1],
-            delay: 1.0,
           }}
+          viewport={{ once: true, margin: "-120px" }}
           className="text-center mt-12"
         >
           <p className="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed">

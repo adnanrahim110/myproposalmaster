@@ -30,7 +30,7 @@
   }
 
   body {
-    @apply text-neutral-800 font-dm-sans xl:text-lg;
+    @apply text-neutral-800 font-dm-sans text-base xl:text-lg;
   }
 
   :is(button, a, input, textarea, select) {
@@ -52,7 +52,7 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto px-5 w-full max-w-full sm:px-3 sm:max-w-lg md:max-w-2xl lg:max-w-[940px] xl:max-w-6xl 2xl:max-w-7xl;
+    @apply mx-auto px-5 w-full max-w-full sm:px-3 sm:max-w-lg md:max-w-2xl lg:max-w-[990px] xl:max-w-6xl 2xl:max-w-7xl;
   }
 
   .animate-fade-in-up {

@@ -1,7 +1,7 @@
 "use client";
 
 import { TESTIMONIALS } from "@/constant";
-import { motion, useInView } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { useRef, useState } from "react";
 import "swiper/css";
@@ -13,11 +13,7 @@ import SectionHeader from "../ui/SectionHeader";
 
 const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-100px",
-    amount: 0.3,
-  });
+  const reduceMotion = useReducedMotion();
 
   const [swiperRef, setSwiperRef] = useState(null);
 
@@ -33,7 +29,7 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
   return (
     <section
       ref={ref}
-      className="py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden"
+      className="py-16 xl:py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-blue-900/20"></div>
 
@@ -47,33 +43,30 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
             className="text-left mb-0 flex-1"
             titleClassName="text-left text-white"
             descriptionClassName="text-left text-gray-300"
-            isInView={isInView}
-            delay={0.6}
           />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{
-              duration: 0.8,
+              duration: reduceMotion ? 0 : 0.4,
               ease: [0.25, 0.1, 0.25, 1],
-              delay: 0.2,
             }}
+            viewport={{ once: true, margin: "-120px" }}
             className="relative space-y-5"
           >
             <div className="grid grid-cols-4 gap-3">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: reduceMotion ? 0 : 0.35,
                   ease: [0.25, 0.1, 0.25, 1],
-                  delay: 1,
+                  delay: reduceMotion ? 0 : 0.2,
                 }}
+                viewport={{ once: true, margin: "-120px" }}
                 className="bg-gradient-to-br from-green-500/20 to-green-600/10 backdrop-blur-sm border border-green-500/30 rounded-xl p-3 text-center"
               >
                 <div className="text-2xl font-bold text-green-400 mb-1">
@@ -84,14 +77,13 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
 
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: reduceMotion ? 0 : 0.35,
                   ease: [0.25, 0.1, 0.25, 1],
-                  delay: 0.6,
+                  delay: reduceMotion ? 0 : 0.25,
                 }}
+                viewport={{ once: true, margin: "-120px" }}
                 className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 backdrop-blur-sm border border-blue-500/30 rounded-xl p-3 text-center"
               >
                 <div className="text-2xl font-bold text-blue-400 mb-1">50+</div>
@@ -100,14 +92,13 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
 
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: reduceMotion ? 0 : 0.35,
                   ease: [0.25, 0.1, 0.25, 1],
-                  delay: 0.8,
+                  delay: reduceMotion ? 0 : 0.3,
                 }}
+                viewport={{ once: true, margin: "-120px" }}
                 className="bg-gradient-to-br from-primary-500/20 to-primary-600/10 backdrop-blur-sm border border-primary-500/30 rounded-xl p-3 text-center"
               >
                 <div className="text-2xl font-bold text-primary-400 mb-1">
@@ -118,14 +109,13 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
 
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: reduceMotion ? 0 : 0.35,
                   ease: [0.25, 0.1, 0.25, 1],
-                  delay: 1.0,
+                  delay: reduceMotion ? 0 : 0.35,
                 }}
+                viewport={{ once: true, margin: "-120px" }}
                 className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 backdrop-blur-sm border border-purple-500/30 rounded-xl p-3 text-center"
               >
                 <div className="text-2xl font-bold text-purple-400 mb-1">
@@ -137,12 +127,13 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.6,
+                duration: reduceMotion ? 0 : 0.4,
                 ease: [0.25, 0.1, 0.25, 1],
-                delay: 1.4,
+                delay: reduceMotion ? 0 : 0.45,
               }}
+              viewport={{ once: true, margin: "-120px" }}
               className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-2xl p-4"
             >
               <div className="text-white font-semibold mb-4">Trusted By</div>
@@ -158,16 +149,13 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
                   <motion.div
                     key={sector.name}
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={
-                      isInView
-                        ? { opacity: 1, scale: 1 }
-                        : { opacity: 0, scale: 0.8 }
-                    }
+                    whileInView={{ opacity: 1, scale: 1 }}
                     transition={{
-                      duration: 0.4,
+                      duration: reduceMotion ? 0 : 0.3,
                       ease: [0.25, 0.1, 0.25, 1],
-                      delay: 1.4 + index * 0.1,
+                      delay: reduceMotion ? 0 : 0.45 + index * 0.08,
                     }}
+                    viewport={{ once: true, margin: "-120px" }}
                     className="text-center"
                   >
                     <div className="text-2xl">{sector.icon}</div>
@@ -180,22 +168,23 @@ const TestimonialsSection = ({ reviews = TESTIMONIALS }) => {
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{
-              duration: 0.8,
+              duration: reduceMotion ? 0 : 0.45,
               ease: [0.25, 0.1, 0.25, 1],
-              delay: 0.4,
             }}
+            viewport={{ once: true, margin: "-120px" }}
             className="space-y-8"
           >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.6,
+                duration: reduceMotion ? 0 : 0.4,
                 ease: [0.25, 0.1, 0.25, 1],
-                delay: 1.2,
+                delay: reduceMotion ? 0 : 0.35,
               }}
+              viewport={{ once: true, margin: "-120px" }}
               className="relative testimonials-swiper"
             >
               <div className="absolute top-1/2 -translate-y-1/2 -left-6 z-10">

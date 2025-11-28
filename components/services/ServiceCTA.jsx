@@ -21,6 +21,7 @@ const ServiceCTA = ({ service }) => {
               title={cta.title}
               // highlightedText={ct}
               className="mb-0 text-left lg:text-left"
+              titleClassName="lg:text-4xl"
               description={null}
             />
           </div>
@@ -32,9 +33,7 @@ const ServiceCTA = ({ service }) => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <p className="text-base text-slate-700 md:text-lg leading-relaxed">
-              {cta.text}
-            </p>
+            <p className="text-sm text-slate-700 xl:text-lg">{cta.text}</p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Button

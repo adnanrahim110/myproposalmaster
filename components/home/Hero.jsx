@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import React, { useRef } from "react";
@@ -9,11 +9,7 @@ import Title from "../ui/Title";
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const isInView = useInView(heroRef, {
-    once: true,
-    margin: "-100px",
-    amount: 0.2,
-  });
+  const reduceMotion = useReducedMotion();
 
   return (
     <div className="relative bg-cover bg-center bg-no-repeat bg-[url('/imgs/hero-home.webp')] min-h-[800px] pt-32 pb-20 flex flex-col items-center justify-center overflow-hidden">
@@ -26,18 +22,13 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div
-        ref={heroRef}
-        className="relative z-10 mx-auto px-5 lg:px-3 max-w-6xl"
-      >
+      <div ref={heroRef} className="relative z-10 container">
         <div className="text-center text-white">
           <div className="space-y-2">
             <Subtitle
               icon={<CheckCircle className="w-4 h-4 text-green-400" />}
               className="mb-6"
               textClassName="bg-white/10 backdrop-blur-sm border border-white/20 text-white"
-              isInView={isInView}
-              delay={0}
             >
               Trusted by 500+ Organizations Worldwide
             </Subtitle>
@@ -46,24 +37,22 @@ const Hero = () => {
               <Title
                 as="h1"
                 highlightedText="Fueling Your Vision."
-                className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent tracking-tight leading-[0.85]"
+                className="text-5xl lg:text-6xl xl:text-8xl font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent tracking-tight leading-[0.85]"
                 highlightClassName="text-primary-500 -mt-5 font-snell-bt leading-snug"
-                isInView={isInView}
-                delay={0.3}
               >
                 Winning Grants.&nbsp; Fueling Your Vision.
               </Title>
             </div>
 
             <motion.p
-              className="text-xl md:text-2xl text-gray-200 max-w-7xl mx-auto leading-relaxed font-light"
+              className="xl:text-2xl text-gray-200 leading-relaxed font-light"
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.6,
+                duration: reduceMotion ? 0 : 0.45,
                 ease: [0.25, 0.1, 0.25, 1],
-                delay: 1.2,
               }}
+              viewport={{ once: true, margin: "-120px" }}
             >
               Behind every successful organization is the funding that makes its
               mission possible. Securing grants, however, takes more than
@@ -80,12 +69,12 @@ const Hero = () => {
           <motion.div
             className="my-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.5,
+              duration: reduceMotion ? 0 : 0.35,
               ease: [0.25, 0.1, 0.25, 1],
-              delay: 1.8,
             }}
+            viewport={{ once: true, margin: "-120px" }}
           >
             <Button
               href="/contact"
@@ -110,12 +99,12 @@ const Hero = () => {
           <motion.div
             className="mx-auto max-w-lg"
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.6,
+              duration: reduceMotion ? 0 : 0.4,
               ease: [0.25, 0.1, 0.25, 1],
-              delay: 2.1,
             }}
+            viewport={{ once: true, margin: "-120px" }}
           >
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl py-4 px-3">
               <div className="grid md:grid-cols-[1.1fr_0.8fr_1.1fr] gap-3 items-center text-center md:text-left">

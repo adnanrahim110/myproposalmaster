@@ -194,7 +194,7 @@ const AboutWiseSection = () => {
             </div>
           </div>
 
-          <div className="space-y-16">
+          <div className="space-y-5">
             {journey.map((step, index) => {
               const IconComponent = step.icon;
               const isEven = index % 2 === 0;
@@ -330,7 +330,7 @@ const AboutWiseSection = () => {
           className="text-center mb-28"
         >
           <div className="mb-16">
-            <h3 className="text-4xl font-bold text-gray-900 mb-6">
+            <h3 className="text-4xl font-bold text-gray-900 mb-1">
               Our Mission
             </h3>
             <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-600 mx-auto rounded-full mb-6"></div>
@@ -340,7 +340,7 @@ const AboutWiseSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
@@ -389,7 +389,7 @@ const AboutWiseSection = () => {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="relative bg-gradient-to-br from-primary-600 to-primary-700 rounded-4xl p-16 text-center text-white shadow-3xl overflow-hidden">
+          <div className="relative bg-gradient-to-br from-primary-600 to-primary-700 rounded-4xl p-10 xl:p-16 text-center text-white shadow-3xl overflow-hidden">
             <div className="absolute inset-0">
               <div className="absolute top-0 right-0 w-96 h-96 bg-primary-400/20 rounded-full blur-3xl"></div>
               <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-800/30 rounded-full blur-3xl"></div>
@@ -411,7 +411,7 @@ const AboutWiseSection = () => {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="w-24 h-24 mx-auto mb-8 bg-white/15 backdrop-blur-md rounded-full flex items-center justify-center"
+                className="size-16 xl:size-24 mx-auto mb-4 xl:mb-8 bg-white/15 backdrop-blur-md rounded-full flex items-center justify-center"
               >
                 <Target className="w-12 h-12 text-white" />
               </motion.div>
@@ -421,7 +421,7 @@ const AboutWiseSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-5xl font-bold mb-6 leading-tight"
+                className="lg:text-4xl xl:text-5xl font-bold mb-4 xl:mb-6 leading-tight"
               >
                 Your Vision Deserves Funding. We Can Help.
               </motion.h3>
@@ -431,7 +431,7 @@ const AboutWiseSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-xl text-primary-100 mb-12 max-w-5xl mx-auto font-light leading-relaxed"
+                className="xl:text-xl text-primary-100 mb-12 max-w-5xl mx-auto font-light leading-relaxed"
               >
                 Securing a grant can change everything for your project or
                 organization. Don’t let the complexity of the process stand in

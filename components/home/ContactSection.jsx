@@ -72,7 +72,7 @@ const ContactSection = () => {
           maxWidth="max-w-4xl"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_auto] xl:grid-cols-2 gap-10 lg:gap-5 xl:gap-10 items-stretch">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -237,48 +237,7 @@ const ContactSection = () => {
                 </p>
               </div>
 
-              <div className="relative px-8 md:px-10 pb-8">
-                <div className="hidden">
-                  {CONTACT_DETAILS.map((contact, idx) => {
-                    const Wrapper = contact.href ? "a" : "div";
-                    const Icon = contact.icon;
-                    const colSpan =
-                      contact.name === "Visit" ? "sm:col-span-2" : "";
-                    return (
-                      <Wrapper
-                        key={idx}
-                        {...(contact.href && {
-                          href: contact.href,
-                          rel: "noopener noreferrer",
-                        })}
-                        className={`group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-md p-5 transition-all hover:border-primary-300 ${colSpan}`}
-                      >
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-primary-50 to-transparent transition-opacity" />
-
-                        <div className="relative z-10 flex items-center gap-3">
-                          <span className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center ring-1 ring-primary-100">
-                            <Icon className="w-5 h-5" />
-                          </span>
-                          <div className="min-w-0">
-                            <div className="text-sm text-gray-600 truncate">
-                              {contact.name === "Call"
-                                ? "Call Now"
-                                : contact.name === "Email"
-                                ? "Email"
-                                : "Visit Us"}
-                            </div>
-                            <div className="font-semibold text-gray-900 group-hover:text-primary-700 truncate">
-                              {contact.value}
-                            </div>
-                          </div>
-                          <span className="ml-auto text-primary-600/80 group-hover:text-primary-700 transition-colors">
-                            →
-                          </span>
-                        </div>
-                      </Wrapper>
-                    );
-                  })}
-                </div>
+              <div className="relative px-5 xl:px-10 pb-8">
                 {(() => {
                   const phone = CONTACT_DETAILS.find((c) => c.name === "Call");
                   const email = CONTACT_DETAILS.find((c) => c.name === "Email");
@@ -330,7 +289,7 @@ const ContactSection = () => {
                           </span>
                           <div className="text-left">
                             <div className="text-sm text-gray-600">Email</div>
-                            <div className="font-semibold text-gray-900 group-hover:text-primary-700 break-all">
+                            <div className="font-semibold text-gray-900 group-hover:text-primary-700 break-all text-sm">
                               {email?.value}
                             </div>
                           </div>

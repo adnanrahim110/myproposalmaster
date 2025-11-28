@@ -2,7 +2,36 @@
 
 import SectionHeader from "@/components/ui/SectionHeader";
 import { motion } from "framer-motion";
-import { ListChecks } from "lucide-react";
+import {
+  Building2,
+  Calculator,
+  FileText,
+  Megaphone,
+  Package,
+  Shield,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Trophy,
+  Users,
+  Wallet,
+  ListChecks,
+} from "lucide-react";
+
+const iconMap = {
+  FileText,
+  Megaphone,
+  Trophy,
+  Users,
+  TrendingUp,
+  Package,
+  Building2,
+  Wallet,
+  Target,
+  Shield,
+  Sparkles,
+  Calculator,
+};
 
 const ServiceDeliverablesSection = ({ service }) => {
   const sec2 = service?.sec2 || {};
@@ -24,7 +53,7 @@ const ServiceDeliverablesSection = ({ service }) => {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {sec2.items.map((item, index) => {
-            // const IconComponent = item.icon || FileText;
+            const IconComponent = iconMap[item.icon] || ListChecks;
 
             return (
               <motion.div
@@ -39,11 +68,11 @@ const ServiceDeliverablesSection = ({ service }) => {
                 }}
                 className="group relative flex flex-col items-center gap-4 rounded-3xl border border-primary-100/60 bg-white/80 p-6 text-center transition-transform hover:-translate-y-2 hover:border-primary-200 backdrop-blur"
               >
-                {/* <span className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary-300 to-primary-500 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] ring-4 ring-primary-200/30">
+                <span className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary-300 to-primary-500 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] ring-4 ring-primary-200/30">
                   <IconComponent className="h-9 w-9" />
-                </span> */}
+                </span>
                 <p className="text-sm font-semibold text-slate-800 md:text-base">
-                  {item}
+                  {item.t}
                 </p>
               </motion.div>
             );

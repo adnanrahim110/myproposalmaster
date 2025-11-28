@@ -29,165 +29,66 @@ const AboutHero = () => {
         ref={heroRef}
         className="container mx-auto px-4 lg:px-8 relative z-10"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-[58%_auto] gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
-          >
-            <div className="space-y-6">
-              <Subtitle
-                icon={<CheckCircle className="w-4 h-4 text-primary-400" />}
-                className="mb-6"
-                textClassName="bg-primary-950 border border-primary-800 text-primary-200"
-                isInView={isInView}
-                delay={0}
-              >
-                My Proposal Masters
-              </Subtitle>
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="space-y-8 text-center"
+        >
+          <div className="space-y-6">
+            <Subtitle
+              icon={<CheckCircle className="w-4 h-4 text-primary-400" />}
+              className="mb-6"
+              textClassName="bg-primary-950 border border-primary-800 text-primary-200"
+              isInView={isInView}
+              delay={0}
+            >
+              My Proposal Masters
+            </Subtitle>
 
-              <Title
-                as="h1"
-                highlightedText="Winning Grants"
-                className="text-5xl lg:text-6xl font-bold text-white leading-tight"
-                highlightClassName="text-primary-400"
-                isInView={isInView}
-                delay={0.3}
-              >
-                Empowering Organizations Through Winning Grants
-              </Title>
+            <Title
+              as="h1"
+              highlightedText="Winning Grants"
+              className="text-5xl lg:text-6xl font-bold text-white"
+              highlightClassName="text-primary-400"
+              isInView={isInView}
+              delay={0.3}
+            >
+              Empowering Organizations Through Winning Grants
+            </Title>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-xl text-gray-300 leading-relaxed font-light"
-              >
-                Behind every funded project is a story worth telling, and that’s
-                what we do best. We are a team of experienced grant writers,
-                researchers, and strategists dedicated to helping nonprofits,
-                businesses, and academic institutions secure the funding they
-                need to grow and create lasting impact. So, for your ease, what
-                we offer is simple: funding should never be the barrier to great
-                ideas.
-              </motion.p>
-            </div>
-
-            <motion.div
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="pt-4"
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl text-gray-300 leading-relaxed font-light"
             >
-              <Button
-                href="/contact"
-                variant="primary-dark"
-                icon={<ArrowRight className="w-5 h-5" />}
-                className="px-8 py-4 text-lg font-semibold"
-              >
-                Request a Quote
-              </Button>
-            </motion.div>
-          </motion.div>
+              Behind every funded project is a story worth telling, and that’s
+              what we do best. We are a team of experienced grant writers,
+              researchers, and strategists dedicated to helping nonprofits,
+              businesses, and academic institutions secure the funding they need
+              to grow and create lasting impact. So, for your ease, what we
+              offer is simple: funding should never be the barrier to great
+              ideas.
+            </motion.p>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="pt-4"
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-primary-800/20 rounded-3xl blur-2xl transform rotate-3"></div>
-
-              <div className="relative bg-gray-900/95 backdrop-blur-xl rounded-3xl p-8 border border-primary-900/50 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary-900/60 to-transparent rounded-full transform translate-x-8 -translate-y-8"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary-800/40 to-transparent rounded-full transform -translate-x-6 translate-y-6"></div>
-
-                <div className="relative z-10 space-y-6">
-                  <div className="aspect-video bg-gradient-to-br from-primary-950 to-primary-900 rounded-2xl overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-900/5 via-transparent to-primary-800/10"></div>
-
-                    <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    </div>
-
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="grid grid-cols-3 gap-4 p-8 w-full">
-                        {[1, 2, 3, 4, 5, 6].map((i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={
-                              isInView
-                                ? { opacity: 1, scale: 1 }
-                                : { opacity: 0, scale: 0.8 }
-                            }
-                            transition={{ duration: 0.6, delay: 1.5 + i * 0.1 }}
-                            className="bg-gray-900/60 backdrop-blur-sm rounded-lg p-3 text-center"
-                          >
-                            <div className="w-6 h-6 bg-primary-800 rounded mx-auto mb-2"></div>
-                            <div className="h-2 bg-primary-700/60 rounded-full mb-1"></div>
-                            <div className="h-2 bg-primary-600/60 rounded-full w-3/4 mx-auto"></div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={
-                        isInView
-                          ? { opacity: 1, scale: 1 }
-                          : { opacity: 0, scale: 0 }
-                      }
-                      transition={{ duration: 0.6, delay: 2.2 }}
-                      className="absolute bottom-4 right-4 bg-green-500 text-white rounded-full p-2"
-                    >
-                      <CheckCircle className="w-4 h-4" />
-                    </motion.div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary-800 to-primary-900 rounded-full flex items-center justify-center">
-                        <Target className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-white">
-                          Business Planning Excellence
-                        </div>
-                        <div className="text-sm text-gray-300">
-                          Trusted Industry Authority
-                        </div>
-                      </div>
-                    </div>
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={
-                        isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
-                      }
-                      transition={{ duration: 0.6, delay: 2 }}
-                      className="text-right"
-                    >
-                      <div className="text-2xl font-bold text-primary-400">
-                        Funded
-                      </div>
-                      <div className="text-sm text-gray-400">Success Rate</div>
-                    </motion.div>
-                  </div>
-                </div>
-
-                <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full"></div>
-                <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-gradient-to-br from-primary-800 to-primary-900 rounded-full"></div>
-              </div>
-            </div>
+            <Button
+              href="/contact"
+              variant="primary-dark"
+              icon={<ArrowRight className="w-5 h-5" />}
+              className="px-8 py-4 text-lg font-semibold"
+            >
+              Request a Quote
+            </Button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

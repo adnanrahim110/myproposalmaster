@@ -25,12 +25,12 @@ const Title = ({
     externalIsInView !== undefined ? externalIsInView : internalIsInView;
 
   const headingSizes = {
-    h1: "text-5xl lg:text-7xl",
-    h2: "text-4xl lg:text-6xl",
-    h3: "text-3xl lg:text-5xl",
-    h4: "text-2xl lg:text-4xl",
-    h5: "text-xl lg:text-3xl",
-    h6: "text-lg lg:text-2xl",
+    h1: "text-5xl lg:text-6xl xl:text-7xl",
+    h2: "text-4xl lg:text-5xl xl:text-6xl",
+    h3: "text-3xl lg:text-4xl xl:text-5xl",
+    h4: "text-2xl lg:text-3xl xl:text-4xl",
+    h5: "text-xl lg:text-2xl xl:text-3xl",
+    h6: "text-lg lg:text-xl xl:text-2xl",
   };
 
   const Component = as;
@@ -110,7 +110,11 @@ const Title = ({
       return { nodes: [], newIndex: startIndex };
     }
 
-    if (highlightedText && typeof text === "string" && text.includes(highlightedText)) {
+    if (
+      highlightedText &&
+      typeof text === "string" &&
+      text.includes(highlightedText)
+    ) {
       const parts = text.split(highlightedText);
       let characterIndex = startIndex;
 
@@ -122,7 +126,11 @@ const Title = ({
         }
 
         if (partIndex < parts.length - 1) {
-          const animatedHighlight = animateText(highlightedText, characterIndex, true);
+          const animatedHighlight = animateText(
+            highlightedText,
+            characterIndex,
+            true
+          );
           characterIndex += highlightedText.length;
           acc.push(...animatedHighlight);
         }
@@ -167,7 +175,10 @@ const Title = ({
     const convertNode = (node, keyPrefix) => {
       if (node.nodeType === Node.TEXT_NODE) {
         const textValue = node.textContent || "";
-        const { nodes, newIndex } = animateStringWithHighlight(textValue, characterIndex);
+        const { nodes, newIndex } = animateStringWithHighlight(
+          textValue,
+          characterIndex
+        );
         characterIndex = newIndex;
         return nodes;
       }
@@ -211,7 +222,9 @@ const Title = ({
   const renderContent = () => {
     const htmlContent =
       dangerouslySetInnerHTML?.__html ||
-      (typeof children === "string" && /<[^>]+>/.test(children) ? children : null);
+      (typeof children === "string" && /<[^>]+>/.test(children)
+        ? children
+        : null);
 
     if (htmlContent) {
       return renderHtmlContent(htmlContent);
