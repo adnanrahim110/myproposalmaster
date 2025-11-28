@@ -1,7 +1,6 @@
 import AboutWiseSection from "@/components/home/AboutWiseSection";
 import ContactSection from "@/components/home/ContactSection";
 import Hero from "@/components/home/Hero";
-import LeadershipVideo from "@/components/home/LeadershipVideo";
 import ServicesGridSection from "@/components/home/ServicesGridSection";
 import ServicesShowcase from "@/components/home/ServicesShowcase";
 import StatsSection from "@/components/home/StatsSection";

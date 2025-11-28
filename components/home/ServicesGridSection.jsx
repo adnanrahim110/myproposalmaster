@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   DollarSign,
@@ -10,18 +10,12 @@ import {
   Palette,
   Users,
 } from "lucide-react";
-import { useRef } from "react";
 import { cn } from "../../lib/cn";
 import Button from "../ui/Button";
 import Title from "../ui/Title";
 
 const ServicesGridSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "-100px",
-    amount: 0.3,
-  });
+  const reduceMotion = useReducedMotion();
 
   const services = [
     {
@@ -120,21 +114,18 @@ const ServicesGridSection = () => {
   };
 
   return (
-    <section
-      ref={ref}
-      className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-50/50 to-blue-50/50"></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-white py-20 lg:py-32">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-50/50 to-blue-50/50" />
 
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          whileInView={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{
-            duration: 0.8,
+            duration: reduceMotion ? 0 : 0.45,
             ease: [0.25, 0.1, 0.25, 1],
-            delay: 0.2,
           }}
+          viewport={{ once: true, margin: "-120px" }}
           className="text-center mb-16 lg:mb-20"
         >
           <Title
@@ -142,8 +133,6 @@ const ServicesGridSection = () => {
             highlightedText="My Proposal Masters"
             highlightClassName="text-primary-600"
             className="mb-6 mx-auto max-w-4xl"
-            isInView={isInView}
-            delay={0.2}
           >
             More Ways My Proposal Masters Can Help You Succeed
           </Title>
@@ -161,28 +150,27 @@ const ServicesGridSection = () => {
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-                }
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: reduceMotion ? 0 : 0.35,
                   ease: [0.25, 0.1, 0.25, 1],
-                  delay: 0.4 + index * 0.1,
+                  delay: reduceMotion ? 0 : 0.08 * index,
                 }}
+                viewport={{ once: true, margin: "-80px" }}
                 className={cn(
-                  "group bg-gradient-to-br backdrop-blur-sm border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 cursor-pointer",
+                  "group bg-gradient-to-br backdrop-blur-sm border rounded-2xl p-8 transition-all duration-200 cursor-pointer",
                   colors.bg,
                   colors.border,
                   colors.hover,
-                  "hover:transform hover:-translate-y-2"
+                  reduceMotion ? "" : "hover:-translate-y-2 hover:shadow-xl"
                 )}
               >
                 <div className="flex items-start gap-6 mb-6">
                   <div
                     className={cn(
-                      "w-16 h-16 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300",
-                      "group-hover:scale-110"
+                      "w-16 h-16 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg transition-transform duration-200",
+                      reduceMotion ? "" : "group-hover:scale-105"
                     )}
                   >
                     <IconComponent className={cn("w-8 h-8", colors.icon)} />
@@ -191,7 +179,7 @@ const ServicesGridSection = () => {
                     <div className="text-gray-600 text-sm font-medium mb-1 uppercase tracking-wide">
                       {service.category}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors duration-200 group-hover:text-primary-700">
                       {service.title}
                     </h3>
                   </div>
@@ -212,12 +200,12 @@ const ServicesGridSection = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          whileInView={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{
-            duration: 0.8,
+            duration: reduceMotion ? 0 : 0.4,
             ease: [0.25, 0.1, 0.25, 1],
-            delay: 1.0,
           }}
+          viewport={{ once: true, margin: "-120px" }}
           className="text-center"
         >
           <Button variant="primary" size="lg">
