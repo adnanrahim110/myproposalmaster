@@ -1,4 +1,32 @@
+import {
+  Building2,
+  Calculator,
+  FileText,
+  Megaphone,
+  Package,
+  Shield,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Trophy,
+  Users,
+  Wallet,
+} from "lucide-react";
 
+const PLAN_ITEMS = [
+  { t: "Executive Summary", icon: FileText },
+  { t: "Marketing Strategy", icon: Megaphone },
+  { t: "Competitive Advantages", icon: Trophy },
+  { t: "Management & Personnel", icon: Users },
+  { t: "Investment Analysis", icon: TrendingUp },
+  { t: "Product & Service Description", icon: Package },
+  { t: "Company Overview", icon: Building2 },
+  { t: "Use of Funds", icon: Wallet },
+  { t: "SWOT Analysis", icon: Target },
+  { t: "Barriers to Entry", icon: Shield },
+  { t: "Branding & Marketing", icon: Sparkles },
+  { t: "Pro-Forma Financials", icon: Calculator },
+];
 
 const SERVICES = [
   {
@@ -82,20 +110,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -263,20 +278,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -463,20 +465,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -645,20 +634,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -846,20 +822,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -1048,20 +1011,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -1244,20 +1194,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -1445,20 +1382,7 @@ const SERVICES = [
     },
     sec2: {
       title: "What’s Included In Our Grant Writing Plan?",
-      items: [
-        "Executive Summary",
-        "Marketing Strategy",
-        "Competitive Advantages",
-        "Management & Personnel",
-        "Investment Analysis",
-        "Product & Service Description",
-        "Company Overview",
-        "Use of Funds",
-        "SWOT Analysis",
-        "Barriers to Entry",
-        "Branding & Marketing",
-        "Pro-Forma Financials",
-      ]
+      items: PLAN_ITEMS
     },
     sec3: {
       title: "How Our Grant Writing Process Works?",
@@ -1573,3 +1497,4 @@ const SERVICES = [
 ];
 
 export default SERVICES;
+
